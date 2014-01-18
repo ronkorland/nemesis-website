@@ -1,0 +1,65 @@
+<div class="widget widget-table">
+    <div class="widget-content">
+        <div class="row">
+            <div class="col-lg-12" style="margin-top: 8px !important; margin-bottom: 8px !important;">
+                <div class="col-lg-4">
+                    <span style="padding: 10px;">Suites:</span>
+                    <select ng-change="filterResult()" ng-model="filterCriteria.suiteName"
+                            ng-options="name.suiteName as name.suiteName for name in names">
+                        <option value="">All</option>
+                    </select>
+                </div>
+                <div class="col-lg-4">
+                    <span style="padding: 10px;">Dates:</span>
+                    <select ng-change="filterResult()" ng-model="filterCriteria.minusDays"
+                            ng-options="date.value as date.name for date in dates">
+                    </select>
+                </div>
+                <div class="col-lg-4">
+                    <span style="padding: 10px;">Status:</span>
+                    <select ng-change="filterResult()" ng-model="filterCriteria.status"
+                            ng-options="status.value as status.name for status in statuses">
+                        <option value="">All</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="widget widget-table">
+    <div class="widget-content">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th ng-repeat="header in headers">
+                    {{ header.title }}
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="suite in suites">
+                <td>{{suite.suiteName}}</td>
+                <td>{{suite.startTime}}</td>
+                <td>{{suite.endTime}}</td>
+                <td>{{suite.runningTime}}</td>
+                <td>{{suite.numberOfTests}}</td>
+                <td ng-bind-html="suite.htmlStatus"></td>
+                <td><a href="/#/suite/{{ suite.id }}">Open</a></td>
+            </tr>
+            </tbody>
+        </table>
+        <div ng-show="!apiReturn">
+            <img class="loader" ng-src="/img/loader.gif"/>
+        </div>
+        <div ng-show="apiReturn && suitesCount == 0">
+            <span>No Data</span>
+        </div>
+    </div>
+</div>
+
+<div ng-show="totalPages > 1" class="align-center">
+    <pagination total-items="suitesCount" page="currentPage" items-per-page="filterCriteria.pageSize"
+                max-size="10"
+                boundary-links="true" on-select-page="selectPage(page)"></pagination>
+</div>

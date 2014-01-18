@@ -1,0 +1,6 @@
+<a ng-click="sort(sortvalue)">
+  <span ng-transclude=""></span>
+  <span ng-show="sortedby == sortvalue">
+    <i ng-class="{true: 'fa fa-arrow-up', false: 'fa fa-arrow-down'}[sortdir == 'asc']"></i>
+  </span>
+</a>

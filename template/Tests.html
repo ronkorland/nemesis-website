@@ -1,0 +1,66 @@
+<div class="widget widget-table">
+    <div class="widget-content">
+        <div class="row">
+            <div class="col-lg-12" style="margin-top: 8px !important; margin-bottom: 8px !important;">
+                <div class="col-lg-4">
+                    <span style="padding: 10px;">Methods:</span>
+                    <select ng-change="filterResult()" ng-model="filterCriteria.method"
+                            ng-options="name.method as name.method for name in names">
+                        <option value="">All</option>
+                    </select>
+                </div>
+                <div class="col-lg-4">
+                    <span style="padding: 10px;">Dates:</span>
+                    <select ng-change="filterResult()" ng-model="filterCriteria.minusDays"
+                            ng-options="date.value as date.name for date in dates">
+                    </select>
+
+                    <a ng-click="openDatepicker()">{{exactStartDate}}</a>
+                </div>
+                <div class="col-lg-4">
+                    <span style="padding: 10px;">Status:</span>
+                    <select ng-change="filterResult()" ng-model="filterCriteria.status"
+                            ng-options="status.value as status.name for status in statuses">
+                        <option value="">All</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="widget widget-table">
+    <div class="widget-content">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th ng-repeat="header in headers">
+                    {{ header.title }}
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="test in tests">
+                <td>{{test.method}}</td>
+                <td>{{test.startTime}}</td>
+                <td>{{test.endTime}}</td>
+                <td>{{test.runningTime}}</td>
+                <td class="label-status-{{test.testStatus}}">{{test.testStatus}}</td>
+                <td><a href="/#/test/{{ test.id }}">Open</a></td>
+            </tr>
+            </tbody>
+        </table>
+        <div ng-show="!apiReturn">
+            <img class="loader" ng-src="/img/loader.gif"/>
+        </div>
+        <div ng-show="apiReturn && testsCount == 0">
+            <span>No Data</span>
+        </div>
+    </div>
+</div>
+
+<div ng-show="totalPages > 1" class="align-center">
+    <pagination total-items="testsCount" page="currentPage" items-per-page="filterCriteria.pageSize"
+                max-size="10"
+                boundary-links="true" on-select-page="selectPage(page)"></pagination>
+</div>

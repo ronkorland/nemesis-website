@@ -1,0 +1,34 @@
+<div class="col-lg-6 announcement">
+    <a ng-href="{{data.totalLink}}">
+        <div class="row announcement-total">
+            <p class="announcement-number text-center text-info">{{summary.total}}</p>
+
+            <p class="announcement-text text-center text-info">{{data.totalText}}</p>
+        </div>
+    </a>
+
+    <div class="row announcement-sub">
+        <a class="col-xs-6 announcement-success"
+           ng-href="{{data.successLink}}">
+            <div class="announcement-icon">
+                <i class="fa fa-check fa-5x text-success"></i>
+            </div>
+            <div class="text-right">
+                <p class="announcement-number text-success text-right">{{summary.amountOfSuccess}}</p>
+
+                <p class="announcement-text text-success text-right">{{data.successText}}</p>
+            </div>
+        </a>
+        <a class="col-xs-6 announcement-failure"
+           ng-href="{{data.failedLink}}">
+            <div class="announcement-icon">
+                <i class="fa fa-times fa-5x text-danger"></i>
+            </div>
+            <div class="text-right">
+                <p class="announcement-number text-danger">{{summary.amountOfFailed}}</p>
+
+                <p class="announcement-text text-danger">{{data.failedText}}</p>
+            </div>
+        </a>
+    </div>
+</div>

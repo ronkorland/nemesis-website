@@ -1,0 +1,82 @@
+<div class="row">
+
+    <dashboard-panel summary="suiteSummary" data="suiteSummaryData"></dashboard-panel>
+
+    <dashboard-panel summary="testSummary" data="testSummaryData"></dashboard-panel>
+
+</div>
+
+<div>
+    <div class="widget">
+        <div class="widget-content" style="min-height: 300px;">
+            <chart value='testsLineData' type="line" height="300"></chart>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-6">
+        <div class="widget widget-table">
+            <div class="widget-header"><i class="fa fa-list fa-2x"></i>
+
+                <h3>Recent Suites</h3>
+            </div>
+            <div class="widget-content">
+                <table class="table table-striped recent-table">
+                    <thead>
+                    <tr>
+                        <th ng-repeat="header in recentSuitesHeader">
+                            {{ header.title }}
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="suite in suites" click-link="/suite/{{ suite.id }}">
+                        <td>{{suite.suiteName}}</td>
+                        <td ng-class="{SUCCESS:'label-status-SUCCESS', FAILURE:'label-status-FAILURE', SKIP:'label-status-SKIP'}[suite.suiteStatus]">
+                            {{suite.suiteStatus}}
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <div class="view-all">
+                    <a href="/#/suites">View All Suites <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="widget widget-table">
+            <div class="widget-header"><i class="fa fa-list fa-2x"></i>
+
+                <h3>Recent Tests</h3>
+            </div>
+            <div class="widget-content">
+                <table class="table table-striped recent-table">
+                    <thead>
+                    <tr>
+                        <th ng-repeat="header in recentTestsHeader">
+                            {{ header.title }}
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="test in tests" click-link="/test/{{ test.id }}">
+                        <td>{{test.method}}</td>
+                        <td ng-class="{SUCCESS:'label-status-SUCCESS', FAILURE:'label-status-FAILURE', SKIP:'label-status-SKIP'}[test.testStatus]">
+                            {{test.testStatus}}
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <div class="view-all">
+                    <a href="/#/tests">View All Tests <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
