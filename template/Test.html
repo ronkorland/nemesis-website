@@ -25,16 +25,64 @@
 
 <div class="test-tabs">
     <tabset>
-        <tab heading="Parameters">
+        <tab heading="History">
             <br/>
             <table class="table table-striped table-bordered">
-                <tr ng-repeat="parameter in test.parameters">
-                    <td data-title="'Parameter Name'">{{parameter.paramName}}
+                <thead>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Elapsed</th>
+                <th>Status</th>
+                </thead>
+                <tbody>
+                <tr ng-repeat="testHistory in testsHistory">
+                    <td>
+                        {{testHistory.startTime}}
                     </td>
-                    <td data-title="'Parameter Value'">
+                    <td>
+                        {{testHistory.endTime}}
+                    </td>
+                    <td>
+                        {{testHistory.runningTime}}
+                    </td>
+                    <td ng-class="{SUCCESS:'label-status-SUCCESS', FAILURE:'label-status-FAILURE', SKIP:'label-status-SKIP'}[testHistory.testStatus]">
+                        {{testHistory.testStatus}}
+                    </td>
+                </tr>
+                </tbody>
+
+            </table>
+        </tab>
+        <tab heading="History Timeline">
+            <ol class="timeline clearfix">
+                <li ng-class-odd="'left'" ng-class-even="'right'" ng-repeat="testHistory in testsHistory">
+                    <i class="pointer"></i>
+
+                    <div ng-class="{SUCCESS:'unit-success', FAILURE:'unit-failure'}[testHistory.testStatus]">
+                        <div>Start Time: {{testHistory.startTime}}</div>
+                        <div>End Time: {{testHistory.endTime}}</div>
+                        <div>Elapsed: {{testHistory.runningTime}}</div>
+                        <div>Status: {{testHistory.testStatus}}</div>
+                    </div>
+                </li>
+            </ol>
+        </tab>
+        <tab disabled="!test.parameters.length" heading="Parameters">
+            <br/>
+            <table class="table table-striped table-bordered">
+                <thead>
+                <th>Parameter Name</th>
+                <th>Parameter Value</th>
+                </thead>
+                <tbody>
+                <tr ng-repeat="parameter in test.parameters">
+                    <td>{{parameter.paramName}}
+                    </td>
+                    <td>
                         {{parameter.paramValue}}
                     </td>
                 </tr>
+                </tbody>
             </table>
         </tab>
         <tab disabled="!test.testAttachments" heading="Attachments">

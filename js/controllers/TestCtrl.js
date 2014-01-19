@@ -13,4 +13,11 @@ reportsApp.controller('TestController',
             $scope.test = {};
             console.error(response);
         });
+
+        TestService.getTestHistory({id: $routeParams.testId}).then(function (data) {
+            $scope.testsHistory = data.tests;
+        }, function (response) {
+            $scope.testsHistory = [];
+            console.log(response);
+        });
     });

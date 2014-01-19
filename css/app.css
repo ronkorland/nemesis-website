@@ -266,6 +266,7 @@ ol.vertical-ol li {
 }
 
 .label-status-FAILURE {
+    font-weight: bold;
     color: red;
 }
 
@@ -460,10 +461,25 @@ ol.vertical-ol li {
 .modal-content {
     background: #f9f6f1 !important;
 }
+
 .test-tabs .tab-content {
     background-color: white;
     border-right: 1px solid #dddddd;
     border-left: 1px solid #dddddd;
     border-bottom: 1px solid #dddddd;
-    min-height: 600px;
+    min-height: 175px;
+}
+
+tr.row-success {
+    background-image: -webkit-linear-gradient(top, #dff0d8 0%, #d0e9c6 100%) !important;
+    background-image: linear-gradient(to bottom, #dff0d8 0%, #d0e9c6 100%) !important;
+    background-repeat: repeat-x !important;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffdff0d8', endColorstr='#ffd0e9c6', GradientType=0) !important;
+}
+
+tr.row-failure {
+    background-image: -webkit-linear-gradient(top, #f2dede 0%, #ebcccc 100%) !important;
+    background-image: linear-gradient(to bottom, #f2dede 0%, #ebcccc 100%) !important;
+    background-repeat: repeat-x !important;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff2dede', endColorstr='#ffebcccc', GradientType=0) !important;
 }

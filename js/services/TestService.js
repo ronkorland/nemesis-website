@@ -27,6 +27,12 @@ reportsApp.factory('TestService', function ($resource, $q) {
         port: ':8080'
     });
 
+    var historyResource = $resource('http://localhost:port/api/tests/:id/history', {
+        port: ':8080'
+    }, {
+        id: '@id'
+    });
+
     return {
         getTests: function (params) {
             var deferred = $q.defer();
@@ -74,6 +80,15 @@ reportsApp.factory('TestService', function ($resource, $q) {
                 function (response) {
                     deferred.reject(response);
                 });
+            return deferred.promise;
+        },
+        getTestHistory: function (params) {
+            var deferred = $q.defer();
+            historyResource.get(params, function (tests) {
+                deferred.resolve(tests);
+            }, function (response) {
+                deferred.reject(response);
+            });
             return deferred.promise;
         }
     };
