@@ -1,0 +1,24 @@
+<div class="modal-header">
+    <h4>Document Details</h4>
+</div>
+<div class="modal-body dpModal">
+    <div class="form-group">
+        <label class="control-label" for="tp_name">Test Plan Name</label>
+
+        <div class="controls">
+            <input type="text" ng-model="input.name" id="tp_name" placeholder="Enter Test Plan Name">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label" for="tp_owner">Owner</label>
+
+        <div class="controls">
+            <input type="text" ng-model="input.owner" id="tp_owner" placeholder="Enter Your Name">
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-link" ng-click="cancel()">Cancel</button>
+    <button class="btn btn-primary" ng-disabled="!input.owner || !input.name" ng-click="save()">Save</button>
+</div>
+</div>

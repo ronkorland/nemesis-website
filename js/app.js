@@ -1,5 +1,5 @@
 var reportsApp = angular.module('reportsApp', [ 'ngResource', 'ngSanitize',
-    'highcart.charts.directives', 'ui.bootstrap', 'ngRoute' ]);
+    'highcart.charts.directives', 'ui.bootstrap', 'ngRoute', 'ui.tinymce' ]);
 
 reportsApp.config(function ($routeProvider, $locationProvider) {
     $routeProvider.when('/', {
@@ -28,6 +28,11 @@ reportsApp.config(function ($routeProvider, $locationProvider) {
     $routeProvider.when('/test/:testId', {
         templateUrl: '/template/Test.html',
         controller: 'TestController',
+        reloadOnSearch: false
+    });
+    $routeProvider.when('/testplan/new', {
+        templateUrl: '/template/NewTestPlan.html',
+        controller: 'NewTestPlanController',
         reloadOnSearch: false
     });
     $routeProvider.otherwise({

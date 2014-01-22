@@ -251,7 +251,7 @@ reportsApp.controller('TestsController',
         $scope.openDatepicker = function () {
             var currentMinusDays = $scope.filterCriteria.minusDays;
             var modalInstance = $modal.open({
-                templateUrl: '/template/dpModal.html',
+                templateUrl: '/template/modal/dpModal.html',
                 controller: 'ModalDpCtrl'
             });
             modalInstance.result.then(function (selectedDate) {
