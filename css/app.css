@@ -483,3 +483,7 @@ tr.row-failure {
     background-repeat: repeat-x !important;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff2dede', endColorstr='#ffebcccc', GradientType=0) !important;
 }
+
+tr.me > td {
+    background-color: aquamarine !important;
+}

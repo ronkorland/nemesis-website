@@ -27,7 +27,7 @@
         <div class="widget-content">
             <div class="row">
                 <div class="col-lg-9" style="margin-top: 8px !important; margin-bottom: 8px !important;">
-                    <div class="col-lg-3">
+                    <div class="col-lg-5">
                         <span style="padding: 10px;">Method:</span>
                         <select ng-change="filterResult()" ng-model="filterCriteria.method"
                                 ng-options="name.method as name.method for name in names">
@@ -63,6 +63,7 @@
                     <td>{{test.endTime}}</td>
                     <td>{{test.runningTime}}</td>
                     <td class="label-status-{{test.testStatus}}">{{test.testStatus}}</td>
+                    <td><a href="/#/test/{{test.id}}">More Info</a></td>
                 </tr>
                 <tr data-ng-show="dayDataCollapse[$index]">
                     <td colspan="6">
