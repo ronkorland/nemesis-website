@@ -16,15 +16,23 @@ reportsApp.controller('TestController',
 
         TestService.getTestHistory({id: $routeParams.testId}).then(function (data) {
             $scope.testsHistory = data.tests;
-            $scope.dataArray = [];
-            $scope.catArray = [];
-            angular.forEach(data.tests, function (test) {
-                $scope.dataArray.push(test.durationSec);
-            });
-            angular.forEach(data.tests, function (test) {
-                $scope.catArray.push(test.startTime);
-            });
-            $scope.testHistoryElapsedChart();
+            var dataArray = [];
+            var catArray = [];
+            for (var i = $scope.testsHistory.length - 1; i >= 0; i--) {
+                var status;
+                if ($scope.testsHistory[i].testStatus === 'SUCCESS') {
+                    status = '#d0e9c6';
+                } else {
+                    status = '#ebcccc';
+                }
+                dataArray.push({y: $scope.testsHistory[i].durationSec, color: status});
+            }
+
+            for (var i = $scope.testsHistory.length - 1; i >= 0; i--) {
+                catArray.push($scope.testsHistory[i].startTime);
+            }
+
+            $scope.testHistoryElapsedChart(dataArray, catArray);
         }, function (response) {
             $scope.testsHistory = [];
             $scope.dataArray = [];
@@ -32,7 +40,7 @@ reportsApp.controller('TestController',
             console.log(response);
         });
 
-        $scope.testHistoryElapsedChart = function () {
+        $scope.testHistoryElapsedChart = function (dataArray, catArray) {
             $scope.testHistoryElapsed = {
                 chart: {
                     type: 'column',
@@ -42,7 +50,7 @@ reportsApp.controller('TestController',
                     text: ''
                 },
                 xAxis: {
-                    categories: $scope.catArray,
+                    categories: catArray,
                     labels: {
                         rotation: -55,
                         align: 'right',
@@ -67,7 +75,7 @@ reportsApp.controller('TestController',
                 series: [
                     {
                         name: 'Elapsed',
-                        data: $scope.dataArray,
+                        data: dataArray,
                         dataLabels: {
                             enabled: true,
                             rotation: -90,

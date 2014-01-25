@@ -14,23 +14,34 @@ reportsApp.controller('NewTestPlanController', function ($scope, $modal) {
     };
 
     $scope.uiTinymceConfig = {
-        mode : "textareas",
+        selector: "textarea",
         plugins: [
-            "advlist autolink lists link image charmap print preview anchor",
-            "searchreplace visualblocks code",
-            "insertdatetime media table contextmenu paste pagebreak textcolor wordcount save"
+            "advlist autolink autosave link image lists charmap print preview hr anchor pagebreak spellchecker",
+            "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+            "table contextmenu directionality emoticons template textcolor paste fullpage textcolor save"
         ],
-        toolbar: "save cancel | insertfile undo redo | styleselect | forecolor backcolor bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+
+        toolbar1: "save | newdocument | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | styleselect formatselect fontselect fontsizeselect",
+        toolbar2: "cut copy paste | searchreplace | bullist numlist | outdent indent blockquote | undo redo | link unlink anchor image media code | inserttime preview | forecolor backcolor",
+        toolbar3: "table | hr removeformat | subscript superscript | charmap emoticons | print fullscreen | ltr rtl | spellchecker | visualchars visualblocks nonbreaking template pagebreak restoredraft",
+
+        menubar: false,
+        toolbar_items_size: 'small',
+
+        templates: [
+            {title: 'Test template 1', content: 'Test 1'},
+            {title: 'Test template 2', content: 'Test 2'}
+        ],
         height: 500,
         resize: false,
-        browser_spellcheck : true,
-        save_enablewhendirty : 0,
-        save_oncancelcallback : function(e){
+        browser_spellcheck: true,
+        save_enablewhendirty: 0,
+        save_oncancelcallback: function (e) {
             console.log(e);
             console.log($scope.htmlcontent);
             $scope.htmlcontent = e.startContent;
         },
-        save_onsavecallback: function(e){
+        save_onsavecallback: function (e) {
             $scope.openSaveDocModal();
         }
     };
