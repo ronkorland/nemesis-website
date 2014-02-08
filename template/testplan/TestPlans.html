@@ -1,0 +1,30 @@
+<button class="btn btn-primary" style="margin-bottom: 15px;" click-link="/testplan/new">Create a New Test Plan</button>
+<div class="widget widget-table">
+    <div class="widget-content">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th ng-repeat="header in headers">
+                    {{ header.title }}
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="testPlan in testPlans">
+                <td>{{testPlan.name}}</td>
+                <td>{{testPlan.owner}}</td>
+                <td>{{testPlan.creationDateTime}}</td>
+                <td>{{testPlan.updateDateTime}}</td>
+                <td><a href="/#/testplan/{{ testPlan.id }}">Open</a></td>
+                <td><a href="/#/testplan/{{ testPlan.id }}/edit">Edit</a></td>
+            </tr>
+            </tbody>
+        </table>
+        <div ng-show="!loaded">
+            <img class="loader" ng-src="/img/loader.gif"/>
+        </div>
+        <div ng-show="loaded && testPlansCount == 0">
+            <span>No Data</span>
+        </div>
+    </div>
+</div>

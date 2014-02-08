@@ -32,6 +32,8 @@
                     <a href="/#/suites"><i class="fa fa-list-alt"></i><span>Suites</span> </a></li>
                 <li ng-class="{active: activetab=='/tests'}">
                     <a href="/#/tests"><i class="fa fa-pencil"></i><span>Tests</span> </a></li>
+                <li ng-class="{active: activetab=='/testplans'}">
+                    <a href="/#/testplans"><i class="fa fa-pencil-square-o"></i><span>Test Plans</span> </a></li>
             </ul>
         </div>
     </div>
@@ -59,6 +61,7 @@
 <script src="/js/services/TestService.js"></script>
 <script src="/js/services/SuiteService.js"></script>
 <script src="/js/services/LineChartService.js"></script>
+<script src="/js/services/TestPlanService.js"></script>
 <script src="/js/directives/highchart.js"></script>
 <script src="/js/directives/clickLink.js"></script>
 <script src="/js/directives/sortBy.js"></script>
@@ -66,13 +69,16 @@
 <script src="/js/directives/onEnterBlur.js"></script>
 <script src="/js/directives/dashboardPanel.js"></script>
 <script src="/js/controllers/DashboardCtrl.js"></script>
-<script src="/js/controllers/SuiteCtrl.js"></script>
-<script src="/js/controllers/SuitesCtrl.js"></script>
-<script src="/js/controllers/TestsCtrl.js"></script>
-<script src="/js/controllers/TestCtrl.js"></script>
-<script src="/js/controllers/ModalDpCtrl.js"></script>
-<script src="/js/controllers/NewTestPlanCtrl.js"></script>
-<script src="/js/controllers/TestPlanSaveModalCtrl.js"></script>
+<script src="/js/controllers/suite/SuiteCtrl.js"></script>
+<script src="/js/controllers/suite/SuitesCtrl.js"></script>
+<script src="/js/controllers/test/TestsCtrl.js"></script>
+<script src="/js/controllers/test/TestCtrl.js"></script>
+<script src="/js/controllers/modal/ModalDpCtrl.js"></script>
+<script src="/js/controllers/modal/TestPlanSaveModalCtrl.js"></script>
+<script src="/js/controllers/testplan/NewTestPlanCtrl.js"></script>
+<script src="/js/controllers/testplan/TestPlansCtrl.js"></script>
+<script src="/js/controllers/testplan/TestPlanCtrl.js"></script>
+<script src="/js/controllers/testplan/EditTestPlan.js"></script>
 <script src="/js/filters/HtmlFilter.js"></script>
 </body>
 </html>

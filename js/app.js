@@ -11,28 +11,43 @@ reportsApp.config(function ($routeProvider, $locationProvider) {
         reloadOnSearch: false
     });
     $routeProvider.when('/suites', {
-        templateUrl: '/template/Suites.html',
+        templateUrl: '/template/suite/Suites.html',
         controller: 'SuitesController',
         reloadOnSearch: false
     });
     $routeProvider.when('/suite/:suiteId', {
-        templateUrl: '/template/Suite.html',
+        templateUrl: '/template/suite/Suite.html',
         controller: 'SuiteController',
         reloadOnSearch: false
     });
     $routeProvider.when('/tests', {
-        templateUrl: '/template/Tests.html',
+        templateUrl: '/template/test/Tests.html',
         controller: 'TestsController',
         reloadOnSearch: false
     });
     $routeProvider.when('/test/:testId', {
-        templateUrl: '/template/Test.html',
+        templateUrl: '/template/test/Test.html',
         controller: 'TestController',
         reloadOnSearch: false
     });
     $routeProvider.when('/testplan/new', {
-        templateUrl: '/template/NewTestPlan.html',
+        templateUrl: '/template/testplan/NewTestPlan.html',
         controller: 'NewTestPlanController',
+        reloadOnSearch: false
+    });
+    $routeProvider.when('/testplan/:testplanId', {
+        templateUrl: '/template/testplan/TestPlan.html',
+        controller: 'TestPlanController',
+        reloadOnSearch: false
+    });
+    $routeProvider.when('/testplan/:testplanId/edit', {
+        templateUrl: '/template/testplan/EditTestPlan.html',
+        controller: 'EditTestPlanController',
+        reloadOnSearch: false
+    });
+    $routeProvider.when('/testplans', {
+        templateUrl: '/template/testplan/TestPlans.html',
+        controller: 'TestPlansController',
         reloadOnSearch: false
     });
     $routeProvider.otherwise({

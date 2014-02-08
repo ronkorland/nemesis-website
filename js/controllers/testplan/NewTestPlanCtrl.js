@@ -2,16 +2,11 @@
  * Created by Ron on 19/01/14.
  */
 
-reportsApp.controller('NewTestPlanController', function ($scope, $modal) {
+reportsApp.controller('NewTestPlanController', function ($scope, $modal, $location, TestPlanService) {
 
-    $scope.orightml = '<h2>Try me!</h2><p>textAngular is a super cool WYSIWYG Text Editor directive for AngularJS</p><p><b>Features:</b></p><ol><li>Automatic Seamless Two-Way-Binding</li><li>Super Easy <b>Theming</b> Options</li><li style="color: green;">Simple Editor Instance Creation</li><li>Safely Parses Html for Custom Toolbar Icons</li><li class="text-danger">Doesn&apos;t Use an iFrame</li><li>Works with Firefox, Chrome, and IE8+</li></ol><p><b>Code at GitHub:</b> <a href="https://github.com/fraywing/textAngular">Here</a> </p>';
-    $scope.htmlcontent = $scope.orightml;
-
-    $scope.ckEditors = [];
-    $scope.addEditor = function () {
-        var rand = "" + (Math.random() * 10000);
-        $scope.ckEditors.push({value: rand});
-    };
+    $scope.currentContent = null;
+    $scope.owner = null;
+    $scope.name = null;
 
     $scope.uiTinymceConfig = {
         selector: "textarea",
@@ -49,11 +44,24 @@ reportsApp.controller('NewTestPlanController', function ($scope, $modal) {
     $scope.openSaveDocModal = function () {
         var modalInstance = $modal.open({
             templateUrl: '/template/modal/testPlanSaveModal.html',
-            controller: 'TestPlanSaveModalCtrl'
+            controller: 'TestPlanSaveModalCtrl',
+            resolve: {
+                owner: function () {
+                    return $scope.owner;
+                },
+                name: function () {
+                    return $scope.name;
+                }
+            }
         });
         modalInstance.result.then(function (input) {
-            console.log(input);
+            TestPlanService.createTestPlan({content: $scope.currentContent, name: input.name, owner: input.owner}).then(function (data) {
+                $location.path("/testplan/" + data.id);
+            }, function () {
 
+            });
+            $scope.owner = input.owner;
+            $scope.name = input.name;
         }, function () {
 
         });
