@@ -10,6 +10,6 @@ reportsApp.directive('dashboardPanel', function () {
             data: '=',
             summary: '='
         },
-        templateUrl: '/template/dashboard-panel.html'
+        templateUrl: '/template/dashboard/dashboard-panel.html'
     };
 });

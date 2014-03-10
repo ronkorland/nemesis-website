@@ -34,6 +34,21 @@
                     <a href="/#/tests"><i class="fa fa-pencil"></i><span>Tests</span> </a></li>
                 <li ng-class="{active: activetab=='/testplans'}">
                     <a href="/#/testplans"><i class="fa fa-pencil-square-o"></i><span>Test Plans</span> </a></li>
+                <li ng-class="{active: activetab=='/grid'}">
+                    <a href="/#/grid"><i class="fa fa-sitemap"></i><span>Grid</span> </a></li>
+                <li ng-class="{active: activetab=='/users' || activetab=='/sprints' || activetab=='/summary-email'}"
+                    class="dropdown subnavbar-open-right">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-cog"></i>
+                        <span>Settings</span>
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/#/sprints">Sprints</a></li>
+                        <li><a href="/#/summary-email">Summary Email</a></li>
+                        <li><a href="/#/users">Users</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>
@@ -68,13 +83,15 @@
 <script src="/js/directives/onBlurChange.js"></script>
 <script src="/js/directives/onEnterBlur.js"></script>
 <script src="/js/directives/dashboardPanel.js"></script>
-<script src="/js/controllers/DashboardCtrl.js"></script>
+<script src="/js/controllers/dashboard/DashboardCtrl.js"></script>
+<script src="/js/controllers/setting/SprintsCtrl.js"></script>
 <script src="/js/controllers/suite/SuiteCtrl.js"></script>
 <script src="/js/controllers/suite/SuitesCtrl.js"></script>
 <script src="/js/controllers/test/TestsCtrl.js"></script>
 <script src="/js/controllers/test/TestCtrl.js"></script>
 <script src="/js/controllers/modal/ModalDpCtrl.js"></script>
 <script src="/js/controllers/modal/TestPlanSaveModalCtrl.js"></script>
+<script src="/js/controllers/modal/SprintsAddNewCtrl.js"></script>
 <script src="/js/controllers/testplan/NewTestPlanCtrl.js"></script>
 <script src="/js/controllers/testplan/TestPlansCtrl.js"></script>
 <script src="/js/controllers/testplan/TestPlanCtrl.js"></script>

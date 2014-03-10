@@ -1,4 +1,4 @@
-<button class="btn btn-primary" style="margin-bottom: 15px;" click-link="/testplan/new">Add Test Plan</button>
+<button class="btn btn-primary" style="margin-bottom: 15px;" ng-click="openAddModalDialog()">Add Sprint</button>
 <div class="widget widget-table">
     <div class="widget-content">
         <table class="table table-striped">
@@ -10,7 +10,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="testPlan in testPlans">
+            <tr ng-repeat="sprint in sprints">
                 <td>{{testPlan.name}}</td>
                 <td>{{testPlan.owner}}</td>
                 <td>{{testPlan.creationDateTime}}</td>
@@ -23,7 +23,7 @@
         <div ng-show="!loaded">
             <img class="loader" ng-src="/img/loader.gif"/>
         </div>
-        <div ng-show="loaded && testPlansCount == 0">
+        <div ng-show="loaded && sprintsCount == 0">
             <span>No Data</span>
         </div>
     </div>

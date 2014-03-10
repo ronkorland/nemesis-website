@@ -1,0 +1,36 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal"
+            aria-hidden="true" ng-click="cancel()">&times;</button>
+    <h5 class="modal-title">Add New Cycle</h5>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <label>Cycle Name</label>
+
+        <div class="controls">
+            <input ng-model="input.name" class="form-control" ng-required="true" type="text" id="cycle_name"
+                   placeholder="Enter Sprint Name">
+        </div>
+    </div>
+    <div class="row">
+        <label>Cycle Date</label>
+
+        <p class="input-group">
+            <input readonly placeholder="Select Sprint Start Date" class="form-control dp_input" type="text" datepicker-popup="{{format}}" ng-model="input.date"
+                   is-open="$parent.opened" min="minDate"
+                   datepicker-options="dateOptions"
+                   date-disabled="disabled(date, mode)" ng-required="true"
+                   close-text="Close" show-weeks="false" clear-text="Clear"/>
+            <span class="input-group-btn">
+                <button class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i>
+                </button>
+            </span>
+
+        </p>
+    </div>
+
+</div>
+<div class="modal-footer">
+    <button class="btn btn-link" ng-click="cancel()">Cancel</button>
+    <button class="btn btn-primary" ng-disabled="!input.date || !input.name" ng-click="save()">Save</button>
+</div>

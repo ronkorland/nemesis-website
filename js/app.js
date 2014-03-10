@@ -6,7 +6,7 @@ reportsApp.config(function ($routeProvider, $locationProvider) {
         redirectTo: '/dashboard'
     });
     $routeProvider.when('/dashboard', {
-        templateUrl: '/template/Dashboard.html',
+        templateUrl: '/template/dashboard/Dashboard.html',
         controller: 'DashboardController',
         reloadOnSearch: false
     });
@@ -48,6 +48,26 @@ reportsApp.config(function ($routeProvider, $locationProvider) {
     $routeProvider.when('/testplans', {
         templateUrl: '/template/testplan/TestPlans.html',
         controller: 'TestPlansController',
+        reloadOnSearch: false
+    });
+    $routeProvider.when('/sprints', {
+        templateUrl: '/template/setting/Sprints.html',
+        controller: 'SprintsController',
+        reloadOnSearch: false
+    });
+    $routeProvider.when('/users', {
+        templateUrl: '/template/setting/Users.html',
+        controller: 'SettingsController',
+        reloadOnSearch: false
+    });
+    $routeProvider.when('/summary-email', {
+        templateUrl: '/template/setting/SummaryEmail.html',
+        controller: 'SettingsController',
+        reloadOnSearch: false
+    });
+    $routeProvider.when('/grid', {
+        templateUrl: '/template/grid/SeleniumGrid.html',
+        controller: 'SettingsController',
         reloadOnSearch: false
     });
     $routeProvider.otherwise({
