@@ -5,20 +5,20 @@
                 <div class="col-lg-4">
                     <span style="padding: 10px;">Suites:</span>
                     <select ng-change="filterResult()" ng-model="filterCriteria.suiteName"
-                            ng-options="name.suiteName as name.suiteName for name in names">
+                            ng-options="name.suiteName as name.suiteName for name in names | orderBy:'suiteName'">
                         <option value="">All</option>
                     </select>
                 </div>
                 <div class="col-lg-4">
                     <span style="padding: 10px;">Dates:</span>
                     <select ng-change="filterResult()" ng-model="filterCriteria.minusDays"
-                            ng-options="date.value as date.name for date in dates">
+                            ng-options="date.value as date.name for date in dates | orderBy:'name'">
                     </select>
                 </div>
                 <div class="col-lg-4">
                     <span style="padding: 10px;">Status:</span>
                     <select ng-change="filterResult()" ng-model="filterCriteria.status"
-                            ng-options="status.value as status.name for status in statuses">
+                            ng-options="status.value as status.name for status in statuses | orderBy:'name'">
                         <option value="">All</option>
                     </select>
                 </div>
