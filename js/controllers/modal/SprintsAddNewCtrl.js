@@ -6,14 +6,22 @@ reportsApp
 
         $scope.input = {
             name: "",
-            date: ""
+            startDate: "",
+            endDate: ""
         };
 
-        $scope.open = function ($event) {
+        $scope.openStart = function ($event) {
             $event.preventDefault();
             $event.stopPropagation();
 
-            $scope.opened = true;
+            $scope.openedStart = true;
+        };
+
+        $scope.openEnd = function ($event) {
+            $event.preventDefault();
+            $event.stopPropagation();
+
+            $scope.openedEnd = true;
         };
 
         $scope.save = function () {

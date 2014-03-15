@@ -11,12 +11,9 @@
             </thead>
             <tbody>
             <tr ng-repeat="sprint in sprints">
-                <td>{{testPlan.name}}</td>
-                <td>{{testPlan.owner}}</td>
-                <td>{{testPlan.creationDateTime}}</td>
-                <td>{{testPlan.updateDateTime}}</td>
-                <td><a href="/#/testplan/{{ testPlan.id }}">Open</a></td>
-                <td><a href="/#/testplan/{{ testPlan.id }}/edit">Edit</a></td>
+                <td>{{sprint.name}}</td>
+                <td>{{sprint.startDate}}</td>
+                <td>{{sprint.endDate}}</td>
             </tr>
             </tbody>
         </table>

@@ -3,7 +3,7 @@
  */
 'use strict';
 
-reportsApp.controller('SprintsController', function ($scope, $modal) {
+reportsApp.controller('SprintsController', function ($scope, $modal, $route, SprintService) {
 
     $scope.openAddModalDialog = function () {
 
@@ -13,9 +13,42 @@ reportsApp.controller('SprintsController', function ($scope, $modal) {
         });
 
         modalInstance.result.then(function (input) {
-            $scope.date = input.date;
-            $scope.name = input.name;
+            SprintService.createSprint(input).then(function (data) {
+                    $route.reload();
+                }, function () {
+                    console.error(data);
+                }
+            );
         }, function () {
         });
     };
+
+    $scope.totalPages = 0;
+    $scope.testPlansCount = 0;
+    $scope.loaded = false;
+
+    $scope.headers = [
+        {
+            title: 'Sprint Name',
+            value: 'name'
+        },
+        {
+            title: 'Start Date',
+            value: 'startDate'
+        },
+        {
+            title: 'End Date',
+            value: 'endDate'
+        }
+    ];
+
+    SprintService.getSprints().then(function (data) {
+        $scope.sprints = data.sprints;
+        $scope.sprintsCount = data.total;
+        $scope.loaded = true;
+    }, function () {
+        $scope.sprints = [];
+        $scope.sprintsCount = 0;
+        $scope.loaded = false;
+    });
 });
