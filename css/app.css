@@ -1,3 +1,14 @@
+.pointer {
+    cursor: pointer;
+}
+.highlight {
+    color: #fff;
+    background-color: #3498db;
+}
+.expanded {
+    height: 400px;
+}
+
 body {
     overflow-y: scroll;
     background: #f9f6f1;

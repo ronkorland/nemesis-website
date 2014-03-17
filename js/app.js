@@ -1,5 +1,5 @@
 var reportsApp = angular.module('reportsApp', [ 'ngResource', 'ngSanitize',
-    'highcart.charts.directives', 'ui.bootstrap', 'ngRoute', 'ui.tinymce' ]);
+    'highcart.charts.directives', 'ui.bootstrap', 'ngRoute', 'ui.tinymce', 'ng-context-menu' ]);
 
 reportsApp.config(function ($routeProvider, $locationProvider) {
     $routeProvider.when('/', {
@@ -57,17 +57,17 @@ reportsApp.config(function ($routeProvider, $locationProvider) {
     });
     $routeProvider.when('/users', {
         templateUrl: '/template/setting/Users.html',
-        controller: 'SettingsController',
+        controller: 'SprintsController',
         reloadOnSearch: false
     });
     $routeProvider.when('/summary-email', {
         templateUrl: '/template/setting/SummaryEmail.html',
-        controller: 'SettingsController',
+        controller: 'SummaryEmailController',
         reloadOnSearch: false
     });
     $routeProvider.when('/grid', {
         templateUrl: '/template/grid/SeleniumGrid.html',
-        controller: 'SettingsController',
+        controller: 'SprintsController',
         reloadOnSearch: false
     });
     $routeProvider.otherwise({

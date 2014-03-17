@@ -46,7 +46,11 @@
                 <td>{{test.endTime}}</td>
                 <td>{{test.runningTime}}</td>
                 <td class="label-status-{{test.testStatus}}">{{test.testStatus}}</td>
-                <td><a href="/#/test/{{ test.id }}">Open</a></td>
+                <td style="width:34px">
+                    <a show-on-row-hover href="/#/test/{{test.id}}" style="display:none;">
+                        <i title="More info" class="fa fa-info-circle fa-lg"></i>
+                    </a>
+                </td>
             </tr>
             </tbody>
         </table>

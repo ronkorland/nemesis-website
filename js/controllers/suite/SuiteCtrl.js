@@ -24,6 +24,10 @@ reportsApp
             {
                 title: 'Status',
                 value: 'htmlStatus'
+            },
+            {
+                title: '',
+                value: ''
             }
         ];
 
