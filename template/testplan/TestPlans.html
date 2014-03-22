@@ -10,13 +10,11 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="testPlan in testPlans">
+            <tr context-menu="rightClick(testPlan.id)" data-target="testPlanMenu" ng-repeat="testPlan in testPlans">
                 <td>{{testPlan.name}}</td>
                 <td>{{testPlan.owner}}</td>
                 <td>{{testPlan.creationDateTime}}</td>
                 <td>{{testPlan.updateDateTime}}</td>
-                <td><a href="/#/testplan/{{ testPlan.id }}">View</a></td>
-                <td><a href="/#/testplan/{{ testPlan.id }}/edit">Edit</a></td>
             </tr>
             </tbody>
         </table>
@@ -27,4 +25,17 @@
             <span>No Data</span>
         </div>
     </div>
+</div>
+<div class="dropdown" id="testPlanMenu">
+    <ul class="dropdown-menu" role="menu">
+        <li role="presentation">
+            <a class="pointer" role="menuitem" tabindex="-1" ng-click="viewTestPlan()">View</a>
+        </li>
+        <li role="presentation">
+            <a class="pointer" role="menuitem" tabindex="-1" ng-click="editTestPlan()">Edit</a>
+        </li>
+        <li role="presentation">
+            <a class="pointer" role="menuitem" tabindex="-1" ng-click="deleteTestPlan()">Delete</a>
+        </li>
+    </ul>
 </div>

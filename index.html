@@ -37,7 +37,7 @@
                 <li ng-class="{active: activetab=='/grid'}">
                     <a href="/#/grid"><i class="fa fa-sitemap"></i><span>Grid</span> </a></li>
                 <li ng-class="{active: activetab=='/users' || activetab=='/sprints' || activetab=='/summary-email'}"
-                    class="dropdown subnavbar-open-right">
+                    class="lastItem dropdown subnavbar-open-right">
                     <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-cog"></i>
                         <span>Settings</span>
@@ -57,7 +57,7 @@
 <div class="main">
     <div class="main-inner">
         <div class="container">
-            <ng-view></ng-view>
+            <div ng-view ng-cloak></div>
         </div>
     </div>
 </div>
@@ -69,7 +69,6 @@
 <script src="/lib/angular/angular-route.js"></script>
 <script src="/lib/highcharts.js"></script>
 <script src="/lib/tinymce/tinymce.min.js"></script>
-<script src="/lib/ng-context-menu.js"></script>
 <script src="/js/directives/ui-tinymce.js"></script>
 <script src="/lib/ui-bootstrap-0.10.0.min.js"></script>
 <script src="/lib/ui-bootstrap-tpls-0.10.0.min.js"></script>
@@ -86,6 +85,7 @@
 <script src="/js/directives/onEnterBlur.js"></script>
 <script src="/js/directives/dashboardPanel.js"></script>
 <script src="/js/directives/showOnRowHover.js"></script>
+<script src="/js/directives/ng-context-menu.js"></script>
 <script src="/js/controllers/dashboard/DashboardCtrl.js"></script>
 <script src="/js/controllers/setting/SprintsCtrl.js"></script>
 <script src="/js/controllers/setting/SummaryEmailCtrl.js"></script>

@@ -9,6 +9,8 @@ reportsApp.factory('TestPlanService', function ($resource, $q) {
         id: '@id'
     }, {
         "update": {method: "PUT", params: {id: ''}}
+    }, {
+        "delete": {method: "DELETE", params: {id: '@id'}}
     });
 
     return {
@@ -35,6 +37,16 @@ reportsApp.factory('TestPlanService', function ($resource, $q) {
         updateTestPlan: function (params) {
             var deferred = $q.defer();
             resource.update(params, function (testPlans) {
+                deferred.resolve(testPlans);
+            }, function (response) {
+                deferred.reject(response);
+            });
+
+            return deferred.promise;
+        },
+        deleteTestPlan: function (params) {
+            var deferred = $q.defer();
+            resource.delete(params, function (testPlans) {
                 deferred.resolve(testPlans);
             }, function (response) {
                 deferred.reject(response);

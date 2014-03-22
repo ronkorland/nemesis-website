@@ -40,13 +40,14 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="test in tests">
+            <tr context-menu="rightClick(test.id)" data-target="{{getTarget(test.testStatus)}}"
+                ng-repeat="test in tests">
                 <td>{{test.method}}</td>
                 <td>{{test.startTime}}</td>
                 <td>{{test.endTime}}</td>
                 <td>{{test.runningTime}}</td>
-                <td class="label-status-{{test.testStatus}}">{{test.testStatus}}</td>
-                <td style="width:34px">
+                <td style="width:160px" class="label-status-{{test.testStatus}}">{{test.testStatus}}</td>
+                <td style="width:34px;">
                     <a show-on-row-hover href="/#/test/{{test.id}}" style="display:none;">
                         <i title="More info" class="fa fa-info-circle fa-lg"></i>
                     </a>
@@ -67,4 +68,28 @@
     <pagination total-items="testsCount" page="currentPage" items-per-page="filterCriteria.pageSize"
                 max-size="10"
                 boundary-links="true" on-select-page="selectPage(page)"></pagination>
+</div>
+<div class="dropdown contextMenu" id="successMenu">
+    <ul class="dropdown-menu" role="menu">
+        <li role="presentation">
+            <a class="pointer" role="menuitem" tabindex="-1" ng-click="moreInfo()">More Info</a>
+        </li>
+        <li role="presentation">
+            <a class="pointer" role="menuitem" tabindex="-1" ng-click="deleteTest()">Delete</a>
+        </li>
+    </ul>
+</div>
+<div class="dropdown contextMenu" id="failureMenu">
+    <ul class="dropdown-menu" role="menu">
+        <li role="presentation">
+            <a class="pointer" role="menuitem" tabindex="-1" ng-click="moreInfo()">More Info</a>
+        </li>
+        <li role="presentation">
+            <a class="pointer" role="menuitem" tabindex="-1" ng-click="deleteTest()">Delete</a>
+        </li>
+        <li role="presentation" class="divider"></li>
+        <li role="presentation">
+            <a class="pointer" role="menuitem" tabindex="-1" ng-click="markFailureReason()">Mark Failure Reason</a>
+        </li>
+    </ul>
 </div>

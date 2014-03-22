@@ -3,10 +3,11 @@
  */
 'use strict';
 
-reportsApp.controller('TestPlansController', function ($scope, TestPlanService) {
+reportsApp.controller('TestPlansController', function ($scope, $route, $location, TestPlanService) {
     $scope.totalPages = 0;
     $scope.testPlansCount = 0;
     $scope.loaded = false;
+    $scope.currentId = null;
 
     $scope.headers = [
         {
@@ -24,15 +25,28 @@ reportsApp.controller('TestPlansController', function ($scope, TestPlanService) 
         {
             title: 'Update Date',
             value: 'updateDateTime'
-        },
-        {
-            title: '',
-            value: 'linkOpen'
-        },{
-            title: '',
-            value: 'linkEdit'
         }
     ];
+
+    $scope.rightClick = function (id) {
+        $scope.currentId = id;
+    }
+
+    $scope.viewTestPlan = function () {
+        $location.path("/testplan/" + $scope.currentId);
+    }
+
+    $scope.editTestPlan = function () {
+        $location.path("/testplan/" + $scope.currentId + "/edit");
+    }
+
+    $scope.deleteTestPlan = function () {
+        TestPlanService.deleteTestPlan({id: $scope.currentId}).then(function () {
+            $route.reload();
+        }, function () {
+            console.error("Failed to delete test plan " + $scope.currentId);
+        });
+    }
 
     TestPlanService.getTestPlans().then(function (data) {
         $scope.testPlans = data.testPlans;

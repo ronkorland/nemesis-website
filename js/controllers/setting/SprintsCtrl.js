@@ -5,6 +5,10 @@
 
 reportsApp.controller('SprintsController', function ($scope, $modal, $route, SprintService) {
 
+    $scope.rightClick = function (id) {
+        $scope.currentId = id;
+    }
+
     $scope.openAddModalDialog = function () {
 
         var modalInstance = $modal.open({
@@ -13,9 +17,9 @@ reportsApp.controller('SprintsController', function ($scope, $modal, $route, Spr
         });
 
         modalInstance.result.then(function (input) {
-            SprintService.createSprint(input).then(function (data) {
+            SprintService.createSprint(input).then(function () {
                     $route.reload();
-                }, function () {
+                }, function (data) {
                     console.error(data);
                 }
             );
@@ -51,4 +55,12 @@ reportsApp.controller('SprintsController', function ($scope, $modal, $route, Spr
         $scope.sprintsCount = 0;
         $scope.loaded = false;
     });
+
+    $scope.deleteSprint = function () {
+        SprintService.deleteSprint({id: $scope.currentId}).then(function () {
+            $route.reload();
+        }, function (data) {
+            console.error(data);
+        });
+    };
 });

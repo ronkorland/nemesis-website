@@ -10,7 +10,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="sprint in sprints">
+            <tr context-menu="rightClick(sprint.id)" data-target="sprintMenu" ng-repeat="sprint in sprints">
                 <td>{{sprint.name}}</td>
                 <td>{{sprint.startDate}}</td>
                 <td>{{sprint.endDate}}</td>
@@ -24,4 +24,15 @@
             <span>No Data</span>
         </div>
     </div>
+</div>
+
+<div class="dropdown contextMenu" id="sprintMenu">
+    <ul class="dropdown-menu" role="menu">
+        <li role="presentation">
+            <a class="pointer" role="menuitem" tabindex="-1" ng-click="editSprint()">Edit</a>
+        </li>
+        <li role="presentation">
+            <a class="pointer" role="menuitem" tabindex="-1" ng-click="deleteSprint()">Delete</a>
+        </li>
+    </ul>
 </div>

@@ -61,6 +61,10 @@ reportsApp.controller('SuitesController',
             }
         ];
 
+        $scope.rightClick = function (id) {
+            $scope.currentId = id;
+        }
+
         $scope.statuses = [
             {
                 name: 'Failed',
@@ -214,4 +218,8 @@ reportsApp.controller('SuitesController',
         // manually select a page to trigger an ajax request to populate the grid on
         // page load
         $scope.selectPage(0);
+
+        $scope.moreInfo = function () {
+            $location.path("/suite/" + $scope.currentId);
+        }
     });

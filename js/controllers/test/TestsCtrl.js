@@ -77,6 +77,10 @@ reportsApp.controller('TestsController',
             }
         ];
 
+        $scope.rightClick = function (id) {
+            $scope.currentId = id;
+        }
+
         TestService.getTestsMethodNames().then(
             function (data) {
                 $scope.names = data;
@@ -270,4 +274,16 @@ reportsApp.controller('TestsController',
                 $scope.filterResult();
             });
         };
+
+        $scope.getTarget = function (status) {
+            if (status === 'SUCCESS') {
+                return "successMenu"
+            } else if (status === 'FAILURE') {
+                return "failureMenu"
+            }
+        }
+
+        $scope.moreInfo = function () {
+            $location.path("/test/" + $scope.currentId);
+        }
     });

@@ -9,6 +9,8 @@ reportsApp.factory('SprintService', function ($resource, $q) {
         id: '@id'
     }, {
         "update": {method: "PUT", params: {id: ''}}
+    }, {
+        "delete": {method: "DELETE", params: {id: '@id'}}
     });
 
     return {
@@ -35,6 +37,16 @@ reportsApp.factory('SprintService', function ($resource, $q) {
         updateSprint: function (params) {
             var deferred = $q.defer();
             resource.update(params, function (sprint) {
+                deferred.resolve(sprint);
+            }, function (response) {
+                deferred.reject(response);
+            });
+
+            return deferred.promise;
+        },
+        deleteSprint: function (params) {
+            var deferred = $q.defer();
+            resource.delete(params, function (sprint) {
                 deferred.resolve(sprint);
             }, function (response) {
                 deferred.reject(response);

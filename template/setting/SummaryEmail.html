@@ -1,11 +1,16 @@
-<div context-menu class="panel panel-default" data-target="myMenu"
-     ng-class="{ 'highlight': highlight, 'expanded' : expanded }">
-    <div class="panel-body">
-        Right-click anywhere within this panel
+<div ng-repeat="test in tests">
+    <div context-menu="rightClick(test.value)" data-target="myMenu" class="panel panel-default"
+         ng-class="{ 'highlight': highlight, 'expanded' : expanded }">
+        <div class="panel-body">
+            Right-click anywhere within this panel
+        </div>
     </div>
 </div>
 <div class="dropdown" id="myMenu">
     <ul class="dropdown-menu" role="menu">
+        <li role="presentation">
+            <a class="pointer" role="menuitem" tabindex="-1" ng-click="dd(test.value)">Test</a>
+        </li>
         <li role="presentation">
             <a class="pointer" role="menuitem" tabindex="-1" ng-click="highlight = true">Select</a>
         </li>
