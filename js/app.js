@@ -1,4 +1,4 @@
-var reportsApp = angular.module('reportsApp', [ 'ngResource', 'ngSanitize', 'ngCookies',
+var reportsApp = angular.module('reportsApp', [ 'ngResource', 'ngSanitize', 'ivpusic.cookie',
     'highcart.charts.directives', 'ui.bootstrap', 'ngRoute', 'ui.tinymce', 'ng-context-menu' ]);
 
 reportsApp.config(function ($routeProvider, $locationProvider, $httpProvider) {
@@ -123,7 +123,7 @@ reportsApp.config(function ($routeProvider, $locationProvider, $httpProvider) {
     );
 });
 
-reportsApp.run(function ($rootScope, $location, $cookieStore, UserService) {
+reportsApp.run(function ($rootScope, $location, ipCookie, UserService) {
 
     var path = function () {
         return $location.path();
@@ -153,14 +153,14 @@ reportsApp.run(function ($rootScope, $location, $cookieStore, UserService) {
     $rootScope.logout = function () {
         delete $rootScope.user;
         delete $rootScope.authToken;
-        $cookieStore.remove('authToken');
+        ipCookie.remove('authToken');
         $location.path("/login");
     };
 
     /* Try getting valid user from cookie or go to login page */
     var originalPath = $location.path();
     $location.path("/login");
-    var authToken = $cookieStore.get('authToken');
+    var authToken = ipCookie('authToken');
     if (authToken !== undefined) {
         $rootScope.authToken = authToken;
         UserService.get(function (user) {

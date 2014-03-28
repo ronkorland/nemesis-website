@@ -1,13 +1,14 @@
 'use strict';
 
-reportsApp.controller('LoginController', function ($scope, $rootScope, $location, $cookieStore, UserService) {
+reportsApp.controller('LoginController', function ($scope, $rootScope, $location, UserService, ipCookie) {
 
     $scope.login = function () {
         UserService.authenticate(({username: $scope.username, password: $scope.password}), function (authenticationResult) {
             var authToken = authenticationResult.token;
             $rootScope.authToken = authToken;
+            ipCookie('authToken', authToken);
             if ($scope.rememberMe) {
-                $cookieStore.put('authToken', authToken);
+                ipCookie('authToken', authToken, { expires: 7 });
             }
             UserService.get(function (user) {
                 $rootScope.user = user;
