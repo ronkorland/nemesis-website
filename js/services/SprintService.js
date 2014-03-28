@@ -4,8 +4,7 @@
 'use strict';
 
 reportsApp.factory('SprintService', function ($resource, $q) {
-    var resource = $resource('http://localhost:port/api/sprints/:id', {
-        port: ':8080',
+    var resource = $resource(appConfig.apiUrl + '/sprints/:id', {
         id: '@id'
     }, {
         "update": {method: "PUT", params: {id: ''}}

@@ -34,7 +34,7 @@
         <li role="presentation">
             <a class="pointer" role="menuitem" tabindex="-1" ng-click="editTestPlan()">Edit</a>
         </li>
-        <li role="presentation">
+        <li ng-show="hasRole('admin')" role="presentation">
             <a class="pointer" role="menuitem" tabindex="-1" ng-click="deleteTestPlan()">Delete</a>
         </li>
     </ul>

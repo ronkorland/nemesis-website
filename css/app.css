@@ -35,6 +35,20 @@ img.media-object {
     border-radius: 5px;
 }
 
+.navbar .nav > li > a {
+    color: #fff !important;
+}
+
+.navbar .nav > li > a:hover, .navbar .nav > li > a:focus, .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+    background-color: transparent;
+    text-decoration: none;
+}
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+    background-color: transparent;
+    text-decoration: none;
+}
+
 .navbar-fixed-top {
     position: static;
     margin: 0px;

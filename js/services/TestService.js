@@ -1,35 +1,23 @@
 'use strict';
 
 reportsApp.factory('TestService', function ($resource, $q) {
-    var resource = $resource('http://localhost:port/api/tests/:id', {
-        port: ':8080'
-    }, {
+    var resource = $resource(appConfig.apiUrl + '/tests/:id', {
         id: '@id'
     });
 
-    var resourceBySuite = $resource('http://localhost:port/api/tests/suite/:id', {
-        port: ':8080'
-    }, {
+    var resourceBySuite = $resource(appConfig.apiUrl + '/tests/suite/:id', {
         id: '@id'
     });
 
-    var resourceMethodNamesBySuite = $resource('http://localhost:port/api/tests/suite/:id/method', {
-        port: ':8080'
-    }, {
+    var resourceMethodNamesBySuite = $resource(appConfig.apiUrl + '/tests/suite/:id/method', {
         id: '@id'
     });
 
-    var resourceMethodNames = $resource('http://localhost:port/api/tests/method', {
-        port: ':8080'
-    });
+    var resourceMethodNames = $resource(appConfig.apiUrl + '/tests/method');
 
-    var summaryResource = $resource('http://localhost:port/api/tests/last/24/summary', {
-        port: ':8080'
-    });
+    var summaryResource = $resource(appConfig.apiUrl + '/tests/last/24/summary');
 
-    var historyResource = $resource('http://localhost:port/api/tests/:id/history', {
-        port: ':8080'
-    }, {
+    var historyResource = $resource(appConfig.apiUrl + '/tests/:id/history', {
         id: '@id'
     });
 

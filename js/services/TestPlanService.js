@@ -4,8 +4,7 @@
 'use strict';
 
 reportsApp.factory('TestPlanService', function ($resource, $q) {
-    var resource = $resource('http://localhost:port/api/testplans/:id', {
-        port: ':8080',
+    var resource = $resource(appConfig.apiUrl + '/testplans/:id', {
         id: '@id'
     }, {
         "update": {method: "PUT", params: {id: ''}}

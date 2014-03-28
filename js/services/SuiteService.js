@@ -1,11 +1,11 @@
 'use strict';
 
 reportsApp.factory('SuiteService', function ($resource, $q) {
-    var resource = $resource('http://localhost:port/api/suites/:id', {port: ':8080'}, {id: '@id'});
+    var resource = $resource(appConfig.apiUrl + '/suites/:id', {id: '@id'});
 
-    var namesResource = $resource('http://localhost:port/api/suites/names', {port: ':8080'});
+    var namesResource = $resource(appConfig.apiUrl + '/suites/names');
 
-    var summaryResource = $resource('http://localhost:port/api/suites/last/24/summary', {port: ':8080'});
+    var summaryResource = $resource(appConfig.apiUrl + '/suites/last/24/summary');
 
     return {
         getSuite: function (params) {
