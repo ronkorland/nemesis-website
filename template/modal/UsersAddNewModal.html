@@ -1,0 +1,70 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal"
+            aria-hidden="true" ng-click="cancel()">&times;</button>
+    <h5 class="modal-title">Add User</h5>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <label>Username</label>
+
+        <div class="controls">
+            <input ng-model="input.username" class="form-control" ng-required="true" type="text" id="username"
+                   placeholder="Enter Username">
+        </div>
+    </div>
+    <div class="row">
+        <label>Email</label>
+
+        <div class="controls">
+            <input type="email" ng-model="input.email" class="form-control" ng-required="true" type="text" id="email"
+                   placeholder="Enter Email">
+        </div>
+    </div>
+    <div class="row">
+        <label>Password</label>
+
+        <div class="controls">
+            <input type="password" ng-model="input.password" class="form-control" ng-required="true" type="text"
+                   id="password"
+                   placeholder="Enter Password">
+        </div>
+    </div>
+
+    <div class="row">
+        <label>Permissions</label>
+
+        <div class="controls">
+            <div>
+                <label class="checkbox-inline">
+                    <input type="checkbox" id="permissionAdmin" ng-model="input.mapPermissions.admin"
+                           ng-change="permissionChange(user.id, user.mapPermissions)"> Admin
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" id="permissionCreate" ng-model="input.mapPermissions.create"
+                           ng-change="permissionChange(user.id, user.mapPermissions)"> Create
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" id="permissionView" ng-model="input.mapPermissions.view"
+                           ng-change="permissionChange(user.id, user.mapPermissions)"> View
+                </label>
+            </div>
+            <div>
+                <label class="checkbox-inline">
+                    <input type="checkbox" id="permissionEdit" ng-model="input.mapPermissions.edit"
+                           ng-change="permissionChange(user.id, user.mapPermissions)"> Edit
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" id="permissionDelete" ng-model="input.mapPermissions.delete"
+                           ng-change="permissionChange(user.id, user.mapPermissions)"> Delete
+                </label>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="modal-footer">
+    <button class="btn btn-link" ng-click="cancel()">Cancel</button>
+    <button class="btn btn-primary" ng-disabled="!input.email || !input.username || !input.password" ng-click="save()">
+        Save
+    </button>
+</div>

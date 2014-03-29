@@ -1,4 +1,4 @@
-<button class="btn btn-primary" style="margin-bottom: 15px;" ng-click="openAddModalDialog()">Add Sprint</button>
+<button ng-show="hasPermission('create')" class="btn btn-primary" style="margin-bottom: 15px;" ng-click="openAddModalDialog()">Add Sprint</button>
 <div class="widget widget-table">
     <div class="widget-content">
         <table class="table table-striped">

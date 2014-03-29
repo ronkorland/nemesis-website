@@ -72,7 +72,7 @@
         <li role="presentation">
             <a class="pointer" role="menuitem" tabindex="-1" ng-click="moreInfo()">More Info</a>
         </li>
-        <li ng-show="hasRole('admin')" role="presentation">
+        <li ng-show="hasPermission('delete')" role="presentation">
             <a class="pointer" role="menuitem" tabindex="-1" ng-click="deleteSuite()">Delete</a>
         </li>
     </ul>

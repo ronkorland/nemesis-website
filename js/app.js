@@ -62,7 +62,7 @@ reportsApp.config(function ($routeProvider, $locationProvider, $httpProvider) {
     });
     $routeProvider.when('/users', {
         templateUrl: '/template/setting/Users.html',
-        controller: 'SprintsController',
+        controller: 'UsersController',
         reloadOnSearch: false
     });
     $routeProvider.when('/summary-email', {
@@ -123,7 +123,7 @@ reportsApp.config(function ($routeProvider, $locationProvider, $httpProvider) {
     );
 });
 
-reportsApp.run(function ($rootScope, $location, ipCookie, UserService) {
+reportsApp.run(function ($rootScope, $location, ipCookie, LoginService) {
 
     var path = function () {
         return $location.path();
@@ -137,17 +137,17 @@ reportsApp.run(function ($rootScope, $location, ipCookie, UserService) {
         delete $rootScope.error;
     });
 
-    $rootScope.hasRole = function (role) {
+    $rootScope.hasPermission = function (permission) {
 
         if ($rootScope.user === undefined) {
             return false;
         }
 
-        if ($rootScope.user.mapRoles[role] === undefined) {
+        if ($rootScope.user.mapPermissions[permission] === undefined) {
             return false;
         }
 
-        return $rootScope.user.mapRoles[role];
+        return $rootScope.user.mapPermissions[permission];
     };
 
     $rootScope.logout = function () {
@@ -163,7 +163,7 @@ reportsApp.run(function ($rootScope, $location, ipCookie, UserService) {
     var authToken = ipCookie('authToken');
     if (authToken !== undefined) {
         $rootScope.authToken = authToken;
-        UserService.get(function (user) {
+        LoginService.current(function (user) {
             $rootScope.user = user;
             $location.path(originalPath);
         });

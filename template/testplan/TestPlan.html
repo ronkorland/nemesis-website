@@ -1,5 +1,5 @@
-<button class="btn btn-primary" style="margin-bottom: 15px; margin-right: 5px;" click-link="/testplan/new">Add Test Plan</button>
-<button class="btn btn-primary" style="margin-bottom: 15px;" click-link="/testplan/{{testplanId}}/edit">Edit Test Plan</button>
+<button ng-show="hasPermission('create')" class="btn btn-primary" style="margin-bottom: 15px; margin-right: 5px;" click-link="/testplan/new">Add Test Plan</button>
+<button ng-show="hasPermission('edit')" class="btn btn-primary" style="margin-bottom: 15px;" click-link="/testplan/{{testplanId}}/edit">Edit Test Plan</button>
 <div ng-if="loaded">
     <textarea id="tinymce" ui-tinymce="uiTinymceConfig" ng-model="content"></textarea>
 </div>

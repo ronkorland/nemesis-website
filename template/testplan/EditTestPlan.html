@@ -1,4 +1,5 @@
-<button class="btn btn-primary" style="margin-bottom: 15px; margin-right: 5px;" click-link="/testplan/new">Add Test
+<button ng-show="hasPermission('create')" class="btn btn-primary" style="margin-bottom: 15px; margin-right: 5px;"
+        click-link="/testplan/new">Add Test
     Plan
 </button>
 <div ng-if="loaded">
