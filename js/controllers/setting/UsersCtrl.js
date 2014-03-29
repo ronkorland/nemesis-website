@@ -55,12 +55,32 @@ reportsApp.controller('UsersController', function ($scope, $route, $location, $m
         modalInstance.result.then(function (input) {
             UsersService.createUser(input).then(function () {
                     $route.reload();
+                    growl.addSuccessMessage("New user successfully created");
                 }, function (data) {
                     growl.addErrorMessage(data.data.message);
                     console.error(data);
                 }
             );
         });
+    };
+
+    $scope.openChangePasswordDialog = function (username) {
+
+        var modalInstance = $modal.open({
+            templateUrl: '/template/modal/ChangePasswordModal.html',
+            controller: 'ChangePasswordCtrl'
+        });
+
+        modalInstance.result.then(function (input) {
+                UsersService.changePassword($.param({userId: $scope.currentId, currentPassword: input.currentPassword, newPassword: input.newPassword
+                    })).then(function (data) {
+                        growl.addSuccessMessage("Password successfully changed");
+                    }, function (data) {
+                        growl.addErrorMessage(data.data.message);
+                    });
+            }
+        )
+        ;
     };
 
     UsersService.getUsers().then(function (data) {
@@ -72,4 +92,5 @@ reportsApp.controller('UsersController', function ($scope, $route, $location, $m
         $scope.usersCount = 0;
         $scope.loaded = false;
     });
-});
+})
+;

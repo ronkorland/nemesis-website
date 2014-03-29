@@ -12,7 +12,16 @@ reportsApp.factory('UsersService', function ($resource, $q) {
         "delete": {method: "DELETE", params: {id: '@id'}}
     });
 
-    var permissionsRec = $resource(appConfig.apiUrl + '/users/permissions');
+    var permissionsRes = $resource(appConfig.apiUrl + '/users/permissions');
+
+    var changePasswordRes = $resource(appConfig.apiUrl + '/users/changepassword', {},
+        {
+            save: {
+                method: 'POST',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+            }
+        }
+    );
 
     return {
         createUser: function (userData) {
@@ -57,8 +66,18 @@ reportsApp.factory('UsersService', function ($resource, $q) {
         },
         changePermissions: function (params) {
             var deferred = $q.defer();
-            permissionsRec.save(params, function (user) {
+            permissionsRes.save(params, function (user) {
                 deferred.resolve(user);
+            }, function (response) {
+                deferred.reject(response);
+            });
+
+            return deferred.promise;
+        },
+        changePassword: function (params) {
+            var deferred = $q.defer();
+            changePasswordRes.save(params, function (msg) {
+                deferred.resolve(msg);
             }, function (response) {
                 deferred.reject(response);
             });

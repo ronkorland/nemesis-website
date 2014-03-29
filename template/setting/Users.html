@@ -49,7 +49,7 @@
 <div class="dropdown" id="userMenu">
     <ul class="dropdown-menu" role="menu">
         <li ng-show="hasPermission('edit')" role="presentation">
-            <a class="pointer" role="menuitem" tabindex="-1" ng-click="changePassword()">Change Password</a>
+            <a class="pointer" role="menuitem" tabindex="-1" ng-click="openChangePasswordDialog()">Change Password</a>
         </li>
         <li ng-show="hasPermission('edit')" role="presentation">
             <a class="pointer" role="menuitem" tabindex="-1" ng-click="editUser()">Edit Details</a>
