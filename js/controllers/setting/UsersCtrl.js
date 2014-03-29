@@ -4,7 +4,7 @@
 
 'use strict';
 
-reportsApp.controller('UsersController', function ($scope, $route, $location, $modal, UsersService) {
+reportsApp.controller('UsersController', function ($scope, $route, $location, $modal, UsersService, growl) {
     $scope.totalPages = 0;
     $scope.usersCount = 0;
     $scope.loaded = false;
@@ -56,6 +56,7 @@ reportsApp.controller('UsersController', function ($scope, $route, $location, $m
             UsersService.createUser(input).then(function () {
                     $route.reload();
                 }, function (data) {
+                    growl.addErrorMessage(data.data.message);
                     console.error(data);
                 }
             );

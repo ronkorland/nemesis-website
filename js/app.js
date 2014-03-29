@@ -1,7 +1,9 @@
 var reportsApp = angular.module('reportsApp', [ 'ngResource', 'ngSanitize', 'ivpusic.cookie',
-    'highcart.charts.directives', 'ui.bootstrap', 'ngRoute', 'ui.tinymce', 'ng-context-menu' ]);
+    'highcart.charts.directives', 'ui.bootstrap', 'ngRoute', 'ui.tinymce', 'ng-context-menu', 'angular-growl' ]);
 
-reportsApp.config(function ($routeProvider, $locationProvider, $httpProvider) {
+reportsApp.config(function ($routeProvider, $locationProvider, $httpProvider, growlProvider) {
+    growlProvider.globalTimeToLive(15000);
+
     $routeProvider.when('/', {
         redirectTo: '/dashboard'
     });
