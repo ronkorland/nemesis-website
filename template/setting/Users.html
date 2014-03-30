@@ -1,4 +1,6 @@
-<button ng-show="hasPermission('create')" class="btn btn-primary" style="margin-bottom: 15px;" ng-click="openAddModalDialog()">Add User</button>
+<button ng-show="hasPermission('create')" class="btn btn-primary" style="margin-bottom: 15px;"
+        ng-click="openAddModalDialog()">Add User
+</button>
 <div class="widget widget-table">
     <div class="widget-content">
         <table class="table table-striped">
@@ -10,7 +12,8 @@
             </tr>
             </thead>
             <tbody>
-            <tr context-menu="rightClick(user.id)" data-target="userMenu" ng-repeat="user in users">
+            <tr context-menu="rightClick(user.id, user.username, user.email)" data-target="userMenu"
+                ng-repeat="user in users">
                 <td>{{user.username}}</td>
                 <td>{{user.email}}</td>
                 <td style="width: 350px;">
@@ -52,7 +55,7 @@
             <a class="pointer" role="menuitem" tabindex="-1" ng-click="openChangePasswordDialog()">Change Password</a>
         </li>
         <li ng-show="hasPermission('edit')" role="presentation">
-            <a class="pointer" role="menuitem" tabindex="-1" ng-click="editUser()">Edit Details</a>
+            <a class="pointer" role="menuitem" tabindex="-1" ng-click="openEditDetailsDialog()">Edit Details</a>
         </li>
         <li ng-show="hasPermission('delete')" role="presentation">
             <a class="pointer" role="menuitem" tabindex="-1" ng-click="deleteUser()">Delete</a>

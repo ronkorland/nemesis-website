@@ -1,0 +1,30 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal"
+            aria-hidden="true" ng-click="cancel()">&times;</button>
+    <h5 class="modal-title">Edit User Details</h5>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <label>Username</label>
+
+        <div class="controls">
+            <input ng-model="input.username" class="form-control" ng-required="true" type="text" id="username"
+                   placeholder="Enter Username">
+        </div>
+    </div>
+    <div class="row">
+        <label>Email</label>
+
+        <div class="controls">
+            <input type="email" ng-model="input.email" class="form-control" ng-required="true" type="text" id="email"
+                   placeholder="Enter Email">
+        </div>
+    </div>
+
+</div>
+<div class="modal-footer">
+    <button class="btn btn-link" ng-click="cancel()">Cancel</button>
+    <button class="btn btn-primary" ng-disabled="!input.email || !input.username" ng-click="save()">
+        Save
+    </button>
+</div>

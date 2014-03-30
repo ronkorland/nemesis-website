@@ -1,13 +1,12 @@
 'use strict';
 
 reportsApp
-    .controller('ChangePasswordCtrl',
-    function ($scope, $modalInstance) {
+    .controller('EditUserModalCtrl',
+    function ($scope, $modalInstance, email, username) {
 
         $scope.input = {
-            currentPassword: "",
-            newPassword: "",
-            verifyPassword: ""
+            username: username,
+            email: email
         };
 
         $scope.openStart = function ($event) {
@@ -31,14 +30,5 @@ reportsApp
         $scope.cancel = function () {
             $modalInstance.dismiss('cancel');
         };
-
-        $scope.passwordMatch = function () {
-            if ($scope.input.newPassword !== undefined && $scope.input.verifyPassword !== undefined
-                && $scope.input.newPassword != $scope.input.verifyPassword
-                && $scope.input.verifyPassword.length > 0 && $scope.input.newPassword.length > 0) {
-                return true;
-            }
-            return false;
-        }
 
     });
