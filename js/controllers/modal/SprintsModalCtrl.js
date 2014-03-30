@@ -1,13 +1,15 @@
 'use strict';
 
 reportsApp
-    .controller('SprintsAddNewModalCtrl',
-    function ($scope, $modalInstance) {
+    .controller('SprintsModalCtrl',
+    function ($scope, $modalInstance, sprintName, startDate, endDate, editModal) {
+
+        $scope.editModal = editModal;
 
         $scope.input = {
-            name: "",
-            startDate: "",
-            endDate: ""
+            name: sprintName,
+            startDate: startDate,
+            endDate: endDate
         };
 
         $scope.openStart = function ($event) {

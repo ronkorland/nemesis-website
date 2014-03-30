@@ -1,5 +1,5 @@
 var reportsApp = angular.module('reportsApp', [ 'ngResource', 'ngSanitize', 'ivpusic.cookie',
-    'highcart.charts.directives', 'ui.bootstrap', 'ngRoute', 'ui.tinymce', 'ng-context-menu', 'angular-growl' ]);
+    'highcart.charts.directives', 'ui.bootstrap', 'ngRoute', 'ui.tinymce', 'ng-context-menu', 'angular-growl', 'angular-momentjs' ]);
 
 reportsApp.config(function ($routeProvider, $locationProvider, $httpProvider, growlProvider) {
     growlProvider.globalTimeToLive(15000);
