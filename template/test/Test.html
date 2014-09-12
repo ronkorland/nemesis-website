@@ -1,14 +1,11 @@
 <div>
     <ol class="breadcrumb">
-        <li><a href="/#/tests">Tests</a></li>
+        <li><a href="#/tests">Tests</a></li>
         <li class="active">{{test.method}}</li>
     </ol>
 </div>
 <div class="widget">
     <div class="widget-content">
-        <div class="row">
-            <div class="col-md-8">Method Name: {{test.method}}</div>
-        </div>
         <div class="row">
             <div class="col-md-4">Start Time: {{ test.startTime }}</div>
             <div class="col-md-4">End Time: {{ test.endTime }}</div>
@@ -51,7 +48,7 @@
                         {{testHistory.testStatus}}
                     </td>
                     <td>
-                        <a href="/#/test/{{testHistory.id}}">More Info</a>
+                        <a href="#/test/{{testHistory.id}}">More Info</a>
                     </td>
                 </tr>
                 </tbody>

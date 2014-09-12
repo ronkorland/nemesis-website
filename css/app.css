@@ -2,6 +2,10 @@
     cursor: pointer;
 }
 
+.breadcrumb>.active {
+    color: black;
+}
+
 .highlight {
     color: #fff;
     background-color: #3498db;

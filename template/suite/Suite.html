@@ -1,6 +1,6 @@
 <div>
     <ol class="breadcrumb">
-        <li><a href="/#/suites">Suites</a></li>
+        <li><a href="#/suites">Suites</a></li>
         <li class="active">{{suite.suiteName}}</li>
     </ol>
 
@@ -25,15 +25,19 @@
 
     <div class="widget widget-table">
         <div class="widget-content">
-            <div class="row">
-                <div class="col-lg-9" style="margin-top: 8px !important; margin-bottom: 8px !important;">
-                    <div class="col-lg-5">
+	<div class="row">
+                <div class="col-lg-12" style="margin-top: 8px !important; margin-bottom: 8px !important;">
+                    <div class="col-lg-12">
                         <span style="padding: 10px;">Method:</span>
                         <select ng-change="filterResult()" ng-model="filterCriteria.method"
                                 ng-options="name.method as name.method for name in names">
                             <option value="">All</option>
                         </select>
                     </div>
+		</div>
+	</div>
+            <div class="row">
+                <div class="col-lg-9" style="margin-top: 8px !important; margin-bottom: 8px !important;">
                     <div class="col-lg-6">
                         <span style="padding: 10px;">Status:</span>
                         <select ng-change="filterResult()" ng-model="filterCriteria.status"
@@ -64,7 +68,7 @@
                     <td>{{test.runningTime}}</td>
                     <td class="label-status-{{test.testStatus}}">{{test.testStatus}}</td>
                     <td style="width: 34px">
-                        <a show-on-row-hover href="/#/test/{{test.id}}" style="display:none;">
+                        <a show-on-row-hover href="#/test/{{test.id}}" style="display:none;">
                             <i title="More info" class="fa fa-info-circle fa-lg"></i>
                         </a>
                     </td>
@@ -114,7 +118,7 @@
                 </tbody>
             </table>
             <div ng-show="!apiReturn">
-                <img class="loader" ng-src="/img/loader.gif"/>
+                <img class="loader" ng-src="img/loader.gif"/>
             </div>
             <div ng-show="apiReturn && testsCount == 0">
                 <span>No Data</span>

@@ -4,8 +4,8 @@ reportsApp.controller('DashboardController', function ($scope, LineChartService,
 
     $scope.recentTestsHeader = [
         {
-            title: 'Test Name',
-            value: 'testName'
+            title: 'Method Name',
+            value: 'methodName'
         },
         {
             title: 'Status',
@@ -40,11 +40,11 @@ reportsApp.controller('DashboardController', function ($scope, LineChartService,
 
     $scope.suiteSummaryData = {
         failedText: 'Failed Suites',
-        failedLink: '/#/suites?minusDays=1&status=FAILURE&pageSize=15&pageNumber=0&sortDir=desc&sortedBy=startTime',
+        failedLink: '#/suites?minusDays=1&status=FAILURE&pageSize=15&pageNumber=0&sortDir=desc&sortedBy=startTime',
         successText: 'Success Suites',
-        successLink: '/#/suites?minusDays=1&status=SUCCESS&pageSize=15&pageNumber=0&sortDir=desc&sortedBy=startTime',
+        successLink: '#/suites?minusDays=1&status=SUCCESS&pageSize=15&pageNumber=0&sortDir=desc&sortedBy=startTime',
         totalText: 'Suites on the last 24 hours',
-        totalLink: '/#/suites?minusDays=1&pageSize=15&pageNumber=0&sortDir=desc&sortedBy=startTime'
+        totalLink: '#/suites?minusDays=1&pageSize=15&pageNumber=0&sortDir=desc&sortedBy=startTime'
     };
 
     TestService.getTestSummary().then(function (data) {
@@ -56,11 +56,11 @@ reportsApp.controller('DashboardController', function ($scope, LineChartService,
 
     $scope.testSummaryData = {
         failedText: 'Failed Tests',
-        failedLink: '/#/tests?minusDays=1&status=FAILURE&pageSize=15&pageNumber=0&sortDir=desc&sortedBy=startTime',
+        failedLink: '#/tests?minusDays=1&status=FAILURE&pageSize=15&pageNumber=0&sortDir=desc&sortedBy=startTime',
         successText: 'Success Tests',
-        successLink: '/#/tests?minusDays=1&status=SUCCESS&pageSize=15&pageNumber=0&sortDir=desc&sortedBy=startTime',
+        successLink: '#/tests?minusDays=1&status=SUCCESS&pageSize=15&pageNumber=0&sortDir=desc&sortedBy=startTime',
         totalText: 'Tests on the last 24 hours',
-        totalLink: '/#/tests?minusDays=1&pageSize=15&pageNumber=0&sortDir=desc&sortedBy=startTime'
+        totalLink: '#/tests?minusDays=1&pageSize=15&pageNumber=0&sortDir=desc&sortedBy=startTime'
     };
 
     TestService.getTests({pageNumber: 0, pageSize: 10, sortDir: 'desc', sortedBy: 'startTime'}).then(function (data) {

@@ -49,7 +49,7 @@ reportsApp.controller('UsersController', function ($scope, $route, $location, $m
 
     $scope.openAddModalDialog = function () {
         var modalInstance = $modal.open({
-            templateUrl: '/template/modal/UsersAddNewModal.html',
+            templateUrl: 'template/modal/UsersAddNewModal.html',
             controller: 'UsersAddNewModalCtrl'
         });
 

@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <link rel="stylesheet" href="/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/css/bootstrap.css">
-    <link rel="stylesheet" href="/css/app.css">
-    <link rel="stylesheet" href="/css/timeline.css">
-    <link rel="stylesheet" href="/css/angular-growl.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/timeline.css">
+    <link rel="stylesheet" href="css/angular-growl.min.css">
     <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
 </head>
@@ -40,15 +40,15 @@
         <div class="container">
             <ul class="mainnav">
                 <li ng-class="{active: activetab=='/dashboard'}">
-                    <a href="/"><i class="fa fa-tachometer"></i><span>Dashboard</span> </a></li>
+                    <a href="#/dashboard"><i class="fa fa-tachometer"></i><span>Dashboard</span> </a></li>
                 <li ng-class="{active: activetab=='/suites'}">
-                    <a href="/#/suites"><i class="fa fa-list-alt"></i><span>Suites</span> </a></li>
+                    <a href="#/suites"><i class="fa fa-list-alt"></i><span>Suites</span> </a></li>
                 <li ng-class="{active: activetab=='/tests'}">
-                    <a href="/#/tests"><i class="fa fa-pencil"></i><span>Tests</span> </a></li>
+                    <a href="#/tests"><i class="fa fa-pencil"></i><span>Tests</span> </a></li>
                 <li ng-class="{active: activetab=='/testplans'}">
-                    <a href="/#/testplans"><i class="fa fa-pencil-square-o"></i><span>Test Plans</span> </a></li>
+                    <a href="#/testplans"><i class="fa fa-pencil-square-o"></i><span>Test Plans</span> </a></li>
                 <li ng-show="false" ng-class="{active: activetab=='/grid'}">
-                    <a href="/#/grid"><i class="fa fa-sitemap"></i><span>Grid</span> </a></li>
+                    <a href="#/grid"><i class="fa fa-sitemap"></i><span>Grid</span> </a></li>
                 <li ng-show="hasPermission('admin')"
                     ng-class="{active: activetab=='/users' || activetab=='/sprints' || activetab=='/summary-email'}"
                     class="lastItem dropdown subnavbar-open-right">
@@ -58,9 +58,9 @@
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="/#/sprints">Sprints</a></li>
+                        <li><a href="#/sprints">Sprints</a></li>
                         <li ng-show="false"><a href="/#/summary-email">Summary Email</a></li>
-                        <li><a href="/#/users">Users</a></li>
+                        <li><a href="#/users">Users</a></li>
                     </ul>
                 </li>
             </ul>
@@ -76,56 +76,56 @@
     </div>
 </div>
 
-<script src="/lib/jquery-2.1.0.js"></script>
-<script src="/lib/moment.min.js"></script>
-<script src="/lib/angular/angular.js"></script>
-<script src="/lib/angular/angular-resource.js"></script>
-<script src="/lib/angular/angular-sanitize.js"></script>
-<script src="/lib/angular/angular-route.js"></script>
-<script src="/lib/highcharts.js"></script>
-<script src="/lib/tinymce/tinymce.min.js"></script>
-<script src="/js/directives/ui-tinymce.js"></script>
-<script src="/lib/ui-bootstrap-0.10.0.min.js"></script>
-<script src="/lib/ui-bootstrap-tpls-0.10.0.min.js"></script>
-<script src="/lib/angular-cookie.js"></script>
-<script src="/lib/angular-growl.js"></script>
-<script src="/js/config.js"></script>
-<script src="/js/app.js"></script>
-<script src="/js/services/TestService.js"></script>
-<script src="/js/services/SuiteService.js"></script>
-<script src="/js/services/LineChartService.js"></script>
-<script src="/js/services/TestPlanService.js"></script>
-<script src="/js/services/SprintService.js"></script>
-<script src="/js/services/LoginService.js"></script>
-<script src="/js/services/UsersService.js"></script>
-<script src="/js/directives/highchart.js"></script>
-<script src="/js/directives/clickLink.js"></script>
-<script src="/js/directives/sortBy.js"></script>
-<script src="/js/directives/onBlurChange.js"></script>
-<script src="/js/directives/onEnterBlur.js"></script>
-<script src="/js/directives/dashboardPanel.js"></script>
-<script src="/js/directives/showOnRowHover.js"></script>
-<script src="/js/directives/ng-context-menu.js"></script>
-<script src="/js/directives/angular-momentjs.js"></script>
-<script src="/js/controllers/login/LoginCtrl.js"></script>
-<script src="/js/controllers/dashboard/DashboardCtrl.js"></script>
-<script src="/js/controllers/setting/SprintsCtrl.js"></script>
-<script src="/js/controllers/setting/SummaryEmailCtrl.js"></script>
-<script src="/js/controllers/setting/UsersCtrl.js"></script>
-<script src="/js/controllers/suite/SuiteCtrl.js"></script>
-<script src="/js/controllers/suite/SuitesCtrl.js"></script>
-<script src="/js/controllers/test/TestsCtrl.js"></script>
-<script src="/js/controllers/test/TestCtrl.js"></script>
-<script src="/js/controllers/modal/ModalDpCtrl.js"></script>
-<script src="/js/controllers/modal/TestPlanSaveModalCtrl.js"></script>
-<script src="/js/controllers/modal/SprintsModalCtrl.js"></script>
-<script src="/js/controllers/modal/UsersAddNewCtrl.js"></script>
-<script src="/js/controllers/modal/ChangePasswordModalCtrl.js"></script>
-<script src="/js/controllers/modal/EditUserModalCtrl.js"></script>
-<script src="/js/controllers/testplan/NewTestPlanCtrl.js"></script>
-<script src="/js/controllers/testplan/TestPlansCtrl.js"></script>
-<script src="/js/controllers/testplan/TestPlanCtrl.js"></script>
-<script src="/js/controllers/testplan/EditTestPlan.js"></script>
-<script src="/js/filters/HtmlFilter.js"></script>
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.2/moment.min.js"></script>
+<script src="https://code.angularjs.org/1.2.14/angular.min.js"></script>
+<script src="https://code.angularjs.org/1.2.14/angular-resource.min.js"></script>
+<script src="https://code.angularjs.org/1.2.14/angular-sanitize.min.js"></script>
+<script src="https://code.angularjs.org/1.2.14/angular-route.min.js"></script>
+<script src="lib/highcharts.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/tinymce/4.1.4/tinymce.min.js"></script>
+<script src="js/directives/ui-tinymce.js"></script>
+<script src="lib/ui-bootstrap-0.10.0.min.js"></script>
+<script src="lib/ui-bootstrap-tpls-0.10.0.min.js"></script>
+<script src="lib/angular-cookie.js"></script>
+<script src="lib/angular-growl.js"></script>
+<script src="js/config.js"></script>
+<script src="js/app.js"></script>
+<script src="js/services/TestService.js"></script>
+<script src="js/services/SuiteService.js"></script>
+<script src="js/services/LineChartService.js"></script>
+<script src="js/services/TestPlanService.js"></script>
+<script src="js/services/SprintService.js"></script>
+<script src="js/services/LoginService.js"></script>
+<script src="js/services/UsersService.js"></script>
+<script src="js/directives/highchart.js"></script>
+<script src="js/directives/clickLink.js"></script>
+<script src="js/directives/sortBy.js"></script>
+<script src="js/directives/onBlurChange.js"></script>
+<script src="js/directives/onEnterBlur.js"></script>
+<script src="js/directives/dashboardPanel.js"></script>
+<script src="js/directives/showOnRowHover.js"></script>
+<script src="js/directives/ng-context-menu.js"></script>
+<script src="js/directives/angular-momentjs.js"></script>
+<script src="js/controllers/login/LoginCtrl.js"></script>
+<script src="js/controllers/dashboard/DashboardCtrl.js"></script>
+<script src="js/controllers/setting/SprintsCtrl.js"></script>
+<script src="js/controllers/setting/SummaryEmailCtrl.js"></script>
+<script src="js/controllers/setting/UsersCtrl.js"></script>
+<script src="js/controllers/suite/SuiteCtrl.js"></script>
+<script src="js/controllers/suite/SuitesCtrl.js"></script>
+<script src="js/controllers/test/TestsCtrl.js"></script>
+<script src="js/controllers/test/TestCtrl.js"></script>
+<script src="js/controllers/modal/ModalDpCtrl.js"></script>
+<script src="js/controllers/modal/TestPlanSaveModalCtrl.js"></script>
+<script src="js/controllers/modal/SprintsModalCtrl.js"></script>
+<script src="js/controllers/modal/UsersAddNewCtrl.js"></script>
+<script src="js/controllers/modal/ChangePasswordModalCtrl.js"></script>
+<script src="js/controllers/modal/EditUserModalCtrl.js"></script>
+<script src="js/controllers/testplan/NewTestPlanCtrl.js"></script>
+<script src="js/controllers/testplan/TestPlansCtrl.js"></script>
+<script src="js/controllers/testplan/TestPlanCtrl.js"></script>
+<script src="js/controllers/testplan/EditTestPlan.js"></script>
+<script src="js/filters/HtmlFilter.js"></script>
 </body>
 </html>

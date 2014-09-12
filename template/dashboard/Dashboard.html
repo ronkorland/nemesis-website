@@ -30,7 +30,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr ng-repeat="suite in suites" click-link="/suite/{{ suite.id }}">
+                    <tr ng-repeat="suite in suites" click-link="suite/{{ suite.id }}">
                         <td>{{suite.suiteName}}</td>
                         <td ng-class="{SUCCESS:'label-status-SUCCESS', FAILURE:'label-status-FAILURE', SKIP:'label-status-SKIP'}[suite.suiteStatus]">
                             {{suite.suiteStatus}}
@@ -40,7 +40,7 @@
                 </table>
 
                 <div class="view-all">
-                    <a href="/#/suites?minusDays=0">View All Suites <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="#/suites?minusDays=0">View All Suites <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
         </div>
@@ -61,8 +61,8 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr ng-repeat="test in tests" click-link="/test/{{ test.id }}">
-                        <td>{{test.method}}</td>
+                    <tr ng-repeat="test in tests" click-link="test/{{ test.id }}">
+                        <td style="max-width: 25px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">{{test.method}}</td>
                         <td ng-class="{SUCCESS:'label-status-SUCCESS', FAILURE:'label-status-FAILURE', SKIP:'label-status-SKIP'}[test.testStatus]">
                             {{test.testStatus}}
                         </td>
@@ -71,7 +71,7 @@
                 </table>
 
                 <div class="view-all">
-                    <a href="/#/tests?minusDays=0">View All Tests <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="#/tests?minusDays=0">View All Tests <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
         </div>

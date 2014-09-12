@@ -33,7 +33,7 @@ reportsApp.controller('SprintsController', function ($scope, $modal, $route, $mo
 
     $scope.openEditModalDialog = function () {
         var modalInstance = $modal.open({
-            templateUrl: '/template/modal/SprintsModal.html',
+            templateUrl: 'template/modal/SprintsModal.html',
             controller: 'SprintsModalCtrl',
             resolve: {
                 sprintName: function () {
@@ -65,7 +65,7 @@ reportsApp.controller('SprintsController', function ($scope, $modal, $route, $mo
     $scope.openAddModalDialog = function () {
 
         var modalInstance = $modal.open({
-            templateUrl: '/template/modal/SprintsModal.html',
+            templateUrl: 'template/modal/SprintsModal.html',
             controller: 'SprintsModalCtrl',
             resolve: {
                 sprintName: function () {

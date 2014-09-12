@@ -46,7 +46,7 @@
                 <td>{{suite.numberOfTests}}</td>
                 <td style="width:160px" ng-bind-html="suite.htmlStatus"></td>
                 <td style="width:34px">
-                    <a show-on-row-hover href="/#/suite/{{ suite.id }}" style="display:none;">
+                    <a show-on-row-hover href="#/suite/{{ suite.id }}" style="display:none;">
                         <i title="More info" class="fa fa-info-circle fa-lg"></i>
                     </a>
                 </td>
@@ -54,7 +54,7 @@
             </tbody>
         </table>
         <div ng-show="!apiReturn">
-            <img class="loader" ng-src="/img/loader.gif"/>
+            <img class="loader" ng-src="img/loader.gif"/>
         </div>
         <div ng-show="apiReturn && suitesCount == 0">
             <span>No Data</span>

@@ -6,5 +6,5 @@ var appConfig = {
      * This might be desirable if headers don't work correctly in some
      * environments and is still secure when using https. */
     useAuthTokenHeader: true,
-    apiUrl: 'http://localhost:8080/api'
+    apiUrl: 'http://sjrtp-qehub.marketo.org/nemesis/api'
 };
