@@ -1,7 +1,7 @@
  <div growl></div>
-<h3>Hub {{ grid.hubVersion }}</h3>
+<h3 ng-show="apiReturn">Hub {{ grid.hubVersion }}</h3>
 
-<h3>Nodes</h3>
+<h3 ng-show="apiReturn">Nodes</h3>
  <accordion close-others="true">
    <accordion-group is-open="status.open" ng-repeat="node in grid.nodes">
        <accordion-heading>
