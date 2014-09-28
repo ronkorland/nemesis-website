@@ -74,7 +74,7 @@ reportsApp.config(function ($routeProvider, $locationProvider, $httpProvider, gr
     });
     $routeProvider.when('/grid', {
         templateUrl: 'template/grid/SeleniumGrid.html',
-        controller: 'SprintsController',
+        controller: 'GridController',
         reloadOnSearch: false
     });
     $routeProvider.otherwise({

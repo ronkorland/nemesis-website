@@ -1,0 +1,43 @@
+ <div growl></div>
+<h3>Hub {{ grid.hubVersion }}</h3>
+
+<h3>Nodes</h3>
+ <accordion close-others="true">
+   <accordion-group is-open="status.open" ng-repeat="node in grid.nodes">
+       <accordion-heading>
+           Host: {{ node.configurations.host }} OS: {{ node.platform }} Slots: ({{ node.totalUsed }}/{{ node.maxSession }}) <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+       </accordion-heading>
+       	<tabset justified="true">
+			<tab heading="Browsers">
+				<div ng-repeat="bs in node.browsersSummary">
+					<span ng-repeat="a in range(bs.busyInstances) track by $index">
+    					<img class="session-busy" src="img/{{ bs.browser }}.png" height="16" width="16" title="Browser: {{ bs.browser }} Version: {{ bs.version }}" />
+					</span>
+					<span ng-repeat="a in range(bs.freeInstances) track by $index">
+    					<img class="session-free" src="img/{{ bs.browser }}.png" height="16" width="16" title="Browser: {{ bs.browser }} Version: {{ bs.version }}" />
+					</span>
+				</div>
+			</tab>
+    		<tab heading="Configurations">
+    			<div class="tab-pane">
+					<span>Selenium Grid Version: {{ node.nodeVersion }}</span></br>
+					<span tooltip-placement="right" tooltip="The class that will be used to represent the node">Proxy: {{ node.configurations.proxy }}</span></br>
+					<span tooltip-placement="right" tooltip="JSON file that defines the node properties">Node Config: {{ node.configurations.nodeConfig }}</span></br>
+					<span tooltip-placement="right" tooltip="The timeout in ms before the hub automatically ends a test that hasn't had any activity in the last X ms">Timeout: {{ node.configurations.timeout }}ms</span></br>
+					<span tooltip-placement="right" tooltip="How often in ms the node will try to register itself again">Register Cycle: {{ node.configurations.registerCycle }}ms</span></br>
+					<span tooltip-placement="right" tooltip="Interval in ms between alive checks of node how often the hub checks if the node is still alive">Node Polling: {{ node.configurations.nodePolling }}ms</span></br>
+				</div>
+			</tab>
+    		<tab heading="Actions">
+    			<div class="tab-pane">
+    				<button class="btn btn-default btn-sm" style="margin-bottom: 10px;" ng-click="sendNodeAction('kill_ff', node.nodeUrl, node.configurations.host)">Kill All Firefox Browsers</button> </br>
+					<button class="btn btn-default btn-sm" style="margin-bottom: 10px;" ng-click="sendNodeAction('kill_chrome', node.nodeUrl, node.configurations.host)">Kill All Chrome Browsers</button> </br>
+					<button class="btn btn-default btn-sm" style="margin-bottom: 10px;" ng-click="sendNodeAction('kill_ie', node.nodeUrl, node.configurations.host)">Kill All IE Browsers</button> </br>
+    			</div>
+			</tab>
+  		</tabset>
+   </accordion-group>
+ </accordion>
+ <div ng-show="!apiReturn">
+	<img class="loader" ng-src="img/loader.gif"/>
+</div>

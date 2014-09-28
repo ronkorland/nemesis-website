@@ -45,9 +45,9 @@
                     <a href="#/suites"><i class="fa fa-list-alt"></i><span>Suites</span> </a></li>
                 <li ng-class="{active: activetab=='/tests'}">
                     <a href="#/tests"><i class="fa fa-pencil"></i><span>Tests</span> </a></li>
-                <li ng-class="{active: activetab=='/testplans'}">
+                <li ng-show="false" ng-class="{active: activetab=='/testplans'}">
                     <a href="#/testplans"><i class="fa fa-pencil-square-o"></i><span>Test Plans</span> </a></li>
-                <li ng-show="false" ng-class="{active: activetab=='/grid'}">
+                <li ng-class="{active: activetab=='/grid'}">
                     <a href="#/grid"><i class="fa fa-sitemap"></i><span>Grid</span> </a></li>
                 <li ng-show="hasPermission('admin')"
                     ng-class="{active: activetab=='/users' || activetab=='/sprints' || activetab=='/summary-email'}"
@@ -58,7 +58,7 @@
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="#/sprints">Sprints</a></li>
+                        <li ng-show="false"><a href="#/sprints">Sprints</a></li>
                         <li ng-show="false"><a href="#/summary-email">Summary Email</a></li>
                         <li><a href="#/users">Users</a></li>
                     </ul>
@@ -83,14 +83,15 @@
 <script src="https://code.angularjs.org/1.2.14/angular-sanitize.min.js"></script>
 <script src="https://code.angularjs.org/1.2.14/angular-route.min.js"></script>
 <script src="lib/highcharts.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/tinymce/4.1.4/tinymce.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.1.4/tinymce.min.js"></script>
 <script src="js/directives/ui-tinymce.js"></script>
 <script src="lib/ui-bootstrap-0.10.0.min.js"></script>
 <script src="lib/ui-bootstrap-tpls-0.10.0.min.js"></script>
 <script src="lib/angular-cookie.js"></script>
-<script src="lib/angular-growl.js"></script>
+<script src="lib/angular-growl.min.js"></script>
 <script src="js/config.js"></script>
 <script src="js/app.js"></script>
+<script src="js/services/GridService.js"></script>
 <script src="js/services/TestService.js"></script>
 <script src="js/services/SuiteService.js"></script>
 <script src="js/services/LineChartService.js"></script>
@@ -108,6 +109,7 @@
 <script src="js/directives/ng-context-menu.js"></script>
 <script src="js/directives/angular-momentjs.js"></script>
 <script src="js/controllers/login/LoginCtrl.js"></script>
+<script src="js/controllers/grid/GridCtrl.js"></script>
 <script src="js/controllers/dashboard/DashboardCtrl.js"></script>
 <script src="js/controllers/setting/SprintsCtrl.js"></script>
 <script src="js/controllers/setting/SummaryEmailCtrl.js"></script>

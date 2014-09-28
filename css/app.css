@@ -1,3 +1,7 @@
+.tab-pane {
+	margin: 10px;
+}
+
 .pointer {
     cursor: pointer;
 }
@@ -596,4 +600,15 @@ tr.me > td {
 .dp_input[readonly] {
     background-color: #ffffff;
     cursor: pointer;
+}
+
+.panel-title a {
+    display: block;
+    padding: 10px 15px;
+    margin: -10px -15px;
+}
+
+.session-busy {
+	opacity: 0.4;
+	filter:alpha(opacity=40);	
 }
