@@ -8,7 +8,7 @@ reportsApp.config(function ($routeProvider, $locationProvider, $httpProvider, gr
         redirectTo: '/dashboard'
     });
     $routeProvider.when('/login', {
-        templateUrl: 'template/login/login.html',
+        templateUrl: 'template/login/Login.html',
         controller: 'LoginController'
     });
 
