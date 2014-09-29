@@ -1,4 +1,4 @@
- <div growl></div>
+<div growl></div>
 <h3 ng-show="apiReturn">Hub {{ grid.hubVersion }}</h3>
 
 <h3 ng-show="apiReturn">Nodes</h3>
@@ -30,9 +30,11 @@
 			</tab>
     		<tab heading="Actions">
     			<div class="tab-pane">
-    				<button class="btn btn-default btn-sm" style="margin-bottom: 10px;" ng-click="sendNodeAction('kill_ff', node.nodeUrl, node.configurations.host)">Kill All Firefox Browsers</button> </br>
-					<button class="btn btn-default btn-sm" style="margin-bottom: 10px;" ng-click="sendNodeAction('kill_chrome', node.nodeUrl, node.configurations.host)">Kill All Chrome Browsers</button> </br>
-					<button class="btn btn-default btn-sm" style="margin-bottom: 10px;" ng-click="sendNodeAction('kill_ie', node.nodeUrl, node.configurations.host)">Kill All IE Browsers</button> </br>
+    				<button ng-if="browserCap(node.browsersSummary ,'firefox')" class="btn btn-default btn-sm" style="margin-bottom: 10px;" ng-click="sendNodeAction('kill_ff', node.nodeUrl, node.configurations.host)">Kill All Firefox Browsers</button>
+					<button ng-if="browserCap(node.browsersSummary ,'chrome')" class="btn btn-default btn-sm" style="margin-bottom: 10px;" ng-click="sendNodeAction('kill_chrome', node.nodeUrl, node.configurations.host)">Kill All Chrome Browsers</button>
+					<button ng-if="browserCap(node.browsersSummary ,'internet explorer')" class="btn btn-default btn-sm" style="margin-bottom: 10px;" ng-click="sendNodeAction('kill_ie', node.nodeUrl, node.configurations.host)">Kill All IE Browsers</button>
+    				<button ng-if="browserCap(node.browsersSummary ,'safari')" class="btn btn-default btn-sm" style="margin-bottom: 10px;" ng-click="sendNodeAction('kill_safari', node.nodeUrl, node.configurations.host)">Kill All Safari Browsers</button>
+    				<button ng-if="browserCap(node.browsersSummary ,'opera')" class="btn btn-default btn-sm" style="margin-bottom: 10px;" ng-click="sendNodeAction('kill_opera', node.nodeUrl, node.configurations.host)">Kill All Opera Browsers</button>
     			</div>
 			</tab>
   		</tabset>

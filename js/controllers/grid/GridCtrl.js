@@ -17,17 +17,31 @@ reportsApp.controller('GridController', function($scope, $location,
 		return GridService.sendNodeAction({
 			actionType : action,
 			remoteHost : nodeRemoteHost
-		}).then(function(data) {
-			growl.addSuccessMessage("Success send command to node: " + nodeHost);
-			console.log(data);
-		}, function(response) {
-			growl.addErrorMessage("Failed to send command to node: " + nodeHost);
-			console.log(response);
-		});
+		}).then(
+				function(data) {
+					growl.addSuccessMessage("Success send command to node: "
+							+ nodeHost);
+					console.log(data);
+				},
+				function(response) {
+					growl.addErrorMessage("Failed to send command to node: "
+							+ nodeHost);
+					console.log(response);
+				});
 	};
 
 	$scope.range = function(n) {
 		return new Array(n);
+	};
+
+	$scope.browserCap = function(bs, bn) {
+		for (i = 0; i < bs.length; i++) {
+			if (bs[i].browser === bn) {
+				if (bs[i].maxInstances > 0) {
+					return true;
+				}
+			}
+		}
 	};
 
 });
