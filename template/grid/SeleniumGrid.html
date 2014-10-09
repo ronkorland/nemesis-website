@@ -9,14 +9,28 @@
        </accordion-heading>
        	<tabset justified="true">
 			<tab heading="Browsers">
-				<div ng-repeat="bs in node.browsersSummary">
-					<span ng-repeat="a in range(bs.busyInstances) track by $index">
-    					<img class="session-busy" src="img/{{ bs.browser }}.png" height="16" width="16" title="Browser: {{ bs.browser }} Version: {{ bs.version }}" />
-					</span>
-					<span ng-repeat="a in range(bs.freeInstances) track by $index">
-    					<img class="session-free" src="img/{{ bs.browser }}.png" height="16" width="16" title="Browser: {{ bs.browser }} Version: {{ bs.version }}" />
-					</span>
-				</div>
+				<table class="table table-striped">
+		            <thead>
+		            	<tr>
+		                	<th ng-repeat="header in headers">
+		                    	{{ header.title }}
+		                	</th>
+		            	</tr>
+		            </thead>
+		            <tbody>
+		            	<tr ng-if="bs.maxInstances > 0" ng-repeat="bs in node.browsersSummary">
+		            		<td><img src="img/{{ bs.browser }}.png" height="16" width="16" title="Browser: {{ bs.browser }} Version: {{ bs.version }}" /></td>
+		               		<td>{{bs.browser}}</td>
+		               		<td>{{bs.browserVersion}}</td>
+		               		<td>{{bs.driverVersion || "-"}}</td>
+		                	<td>{{bs.version}}</td>
+		                	<td>{{bs.maxInstances}}</td>
+		                	<td>{{bs.busyInstances}}</td>
+		                	<td>{{bs.numOfProc}}</td>
+		            	</tr>
+					</tbody>
+        		</table>
+				
 			</tab>
     		<tab heading="Configurations">
     			<div class="tab-pane">
@@ -30,11 +44,11 @@
 			</tab>
     		<tab heading="Actions">
     			<div class="tab-pane">
-    				<button ng-if="browserCap(node.browsersSummary ,'firefox')" class="btn btn-default btn-sm" style="margin-bottom: 10px;" ng-click="sendNodeAction('kill_ff', node.nodeUrl, node.configurations.host)">Kill All Firefox Browsers</button>
-					<button ng-if="browserCap(node.browsersSummary ,'chrome')" class="btn btn-default btn-sm" style="margin-bottom: 10px;" ng-click="sendNodeAction('kill_chrome', node.nodeUrl, node.configurations.host)">Kill All Chrome Browsers</button>
-					<button ng-if="browserCap(node.browsersSummary ,'internet explorer')" class="btn btn-default btn-sm" style="margin-bottom: 10px;" ng-click="sendNodeAction('kill_ie', node.nodeUrl, node.configurations.host)">Kill All IE Browsers</button>
-    				<button ng-if="browserCap(node.browsersSummary ,'safari')" class="btn btn-default btn-sm" style="margin-bottom: 10px;" ng-click="sendNodeAction('kill_safari', node.nodeUrl, node.configurations.host)">Kill All Safari Browsers</button>
-    				<button ng-if="browserCap(node.browsersSummary ,'opera')" class="btn btn-default btn-sm" style="margin-bottom: 10px;" ng-click="sendNodeAction('kill_opera', node.nodeUrl, node.configurations.host)">Kill All Opera Browsers</button>
+    				<button ng-if="browserMaxInstances(node.browsersSummary ,'firefox')" ng-disabled="browserNumOfProc(node.browsersSummary ,'firefox')" class="btn btn-default btn-sm" style="margin-bottom: 10px;" ng-click="sendNodeAction('kill_ff', node.nodeUrl, node.configurations.host)">Kill All Firefox Browsers</button>
+					<button ng-if="browserMaxInstances(node.browsersSummary ,'chrome')" ng-disabled="browserNumOfProc(node.browsersSummary ,'chrome')" class="btn btn-default btn-sm" style="margin-bottom: 10px;" ng-click="sendNodeAction('kill_chrome', node.nodeUrl, node.configurations.host)">Kill All Chrome Browsers</button>
+					<button ng-if="browserMaxInstances(node.browsersSummary ,'internet explorer')" ng-disabled="browserNumOfProc(node.browsersSummary ,'internet explorer')" class="btn btn-default btn-sm" style="margin-bottom: 10px;" ng-click="sendNodeAction('kill_ie', node.nodeUrl, node.configurations.host)">Kill All IE Browsers</button>
+    				<button ng-if="browserMaxInstances(node.browsersSummary ,'safari')" ng-disabled="browserNumOfProc(node.browsersSummary ,'opera')" class="btn btn-default btn-sm" style="margin-bottom: 10px;" ng-click="sendNodeAction('kill_safari', node.nodeUrl, node.configurations.host)">Kill All Safari Browsers</button>
+    				<button ng-if="browserMaxInstances(node.browsersSummary ,'opera')" ng-disabled="browserNumOfProc(node.browsersSummary ,'opera')" class="btn btn-default btn-sm" style="margin-bottom: 10px;" ng-click="sendNodeAction('kill_opera', node.nodeUrl, node.configurations.host)">Kill All Opera Browsers</button>
     			</div>
 			</tab>
   		</tabset>

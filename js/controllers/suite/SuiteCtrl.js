@@ -197,10 +197,17 @@ reportsApp
             }, function () {
                 $scope.suites = [];
             });
-
+    
         // called when navigate to another page in the pagination
         $scope.selectPage = function (page) {
-            $scope.filterCriteria.pageNumber = page;
+            if (page > 0) {
+                $location.search('pageNumber', page - 1);
+                $scope.filterCriteria.pageNumber = page - 1;
+            } else {
+                $location.search('pageNumber', 0);
+                $scope.filterCriteria.pageNumber = 0;
+            }
+            $scope.currentPage = page;
             $scope.fetchResult();
         };
 

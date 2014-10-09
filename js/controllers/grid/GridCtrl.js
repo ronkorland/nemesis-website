@@ -4,9 +4,36 @@
 reportsApp.controller('GridController', function($scope, $location,
 		$routeParams, GridService, growl) {
 
+	$scope.headers = [ {
+		title : '',
+		value : 'icon'
+	}, {
+		title : 'Browser',
+		value : 'browser'
+	}, {
+		title : 'Version',
+		value : 'version'
+	}, {
+		title : 'Driver Version',
+		value : 'driverVersion'
+	}, {
+		title : 'Capability Version',
+		value : 'capVersion'
+	}, {
+		title : 'Max Instances',
+		value : 'maxInstances'
+	}, {
+		title : 'Used Instances',
+		value : 'busyInstances'
+	}, {
+		title : 'Running Processes',
+		value : 'numOfProc'
+	} ];
+
 	GridService.getSeleniumGrid().then(function(data) {
 		$scope.grid = data;
 		$scope.apiReturn = true;
+		// $scope.nodesInfo();
 	}, function(response) {
 		$scope.grid = {};
 		$scope.apiReturn = false;
@@ -34,7 +61,7 @@ reportsApp.controller('GridController', function($scope, $location,
 		return new Array(n);
 	};
 
-	$scope.browserCap = function(bs, bn) {
+	$scope.browserMaxInstances = function(bs, bn) {
 		for (i = 0; i < bs.length; i++) {
 			if (bs[i].browser === bn) {
 				if (bs[i].maxInstances > 0) {
@@ -42,6 +69,18 @@ reportsApp.controller('GridController', function($scope, $location,
 				}
 			}
 		}
+		return false;
+	};
+	
+	$scope.browserNumOfProc = function(bs, bn) {
+		for (i = 0; i < bs.length; i++) {
+			if (bs[i].browser === bn) {
+				if (bs[i].numOfProc > 0) {
+					return false;
+				}
+			}
+		}
+		return true;
 	};
 
 });

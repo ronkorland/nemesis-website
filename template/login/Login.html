@@ -2,7 +2,7 @@
 
 <div class="account-container">
     <div class="content clearfix">
-        <form ng-submit="login()">
+        <form ng-submit="login()" autocomplete="on">
             <h1>Member Login</h1>
 
             <div class="login-fields">
@@ -10,16 +10,22 @@
 
                 <div class="field">
                     <label for="username">Username</label>
-                    <input type="text"
+                    <span>
+                    	<span class="username-field"></span>                    
+                    	<input type="text"
                            ng-model="username" id="username" name="username" value=""
-                           placeholder="Username" class="login username-field">
+                           placeholder="Username" class="login">
+                	</span>
                 </div>
                 <!-- /field -->
                 <div class="field">
                     <label for="password">Password:</label>
-                    <input type="password"
+                    <span>
+                    	<span class="password-field"></span>
+                    	<input type="password"
                            ng-model="password" id="password" name="password" value=""
-                           placeholder="Password" class="login password-field">
+                           placeholder="Password" class="login">
+                	</span>
                 </div>
                 <!-- /password -->
             </div>
