@@ -67,7 +67,7 @@ reportsApp.controller('UsersController', function ($scope, $route, $location, $m
 
     $scope.openEditDetailsDialog = function () {
         var modalInstance = $modal.open({
-            templateUrl: '/template/modal/EditUserModal.html',
+            templateUrl: 'template/modal/EditUserModal.html',
             controller: 'EditUserModalCtrl',
             resolve: {
                 email: function () {
@@ -90,7 +90,7 @@ reportsApp.controller('UsersController', function ($scope, $route, $location, $m
 
     $scope.openChangePasswordDialog = function () {
         var modalInstance = $modal.open({
-            templateUrl: '/template/modal/ChangePasswordModal.html',
+            templateUrl: 'template/modal/ChangePasswordModal.html',
             controller: 'ChangePasswordModalCtrl'
         });
 
