@@ -3,6 +3,36 @@ module.exports = function(grunt) {
 	// Project configuration.
 	grunt.initConfig({
 		pkg : grunt.file.readJSON('package.json'),
+		copy : {
+			build : {
+				files : [ {
+					expand : true,
+					src : [ 'lib/**' ],
+					dest : 'build/'
+				}, {
+					expand : true,
+					src : [ 'img/**' ],
+					dest : 'build/'
+				}, {
+					expand : true,
+					src : [ 'fonts/**' ],
+					dest : 'build/'
+				} ]
+			}
+		},
+		compress : {
+			build : {
+				options : {
+					archive : 'build/nemesis-<%= pkg.version %>.zip'
+				},
+				files : [ {
+					expand : true,
+					cwd : 'build/',
+					src : [ '**' ],
+					dest : 'nemesis/'
+				} ]
+			}
+		},
 		clean : {
 			all : {
 				src : [ 'build/', 'report/' ]
@@ -15,8 +45,8 @@ module.exports = function(grunt) {
 			}
 		},
 		uglify : {
-			options: {
-			      mangle: false
+			options : {
+				mangle : false
 			},
 			build : {
 				files : [ {
@@ -56,7 +86,7 @@ module.exports = function(grunt) {
 					ext : '.html',
 					flatten : false,
 					extDot : 'last'
-				},{
+				}, {
 					expand : true,
 					cwd : '',
 					src : [ 'index.html' ],
@@ -97,9 +127,12 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-csslint');
+	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-contrib-compress');
 
 	// Task(s).
 	grunt.registerTask('validate', [ 'clean:report', 'jshint', 'csslint' ]);
-	grunt.registerTask('default', [ 'clean:build', 'cssmin', 'uglify', 'htmlmin' ]);
+	grunt.registerTask('default', [ 'clean:build', 'copy', 'cssmin', 'uglify',
+			'htmlmin', 'compress' ]);
 
 };
