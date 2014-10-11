@@ -19,7 +19,7 @@
 		            </thead>
 		            <tbody>
 		            	<tr ng-if="bs.maxInstances > 0" ng-repeat="bs in node.browsersSummary">
-		            		<td><img src="img/{{ bs.browser }}.png" height="16" width="16" title="Browser: {{ bs.browser }} Version: {{ bs.version }}" /></td>
+		            		<td><img ng-src="img/{{ bs.browser }}.png" height="16" width="16" title="Browser: {{ bs.browser }} Version: {{ bs.version }}" /></td>
 		               		<td>{{bs.browser}}</td>
 		               		<td>{{bs.browserVersion}}</td>
 		               		<td>{{bs.driverVersion || "-"}}</td>
